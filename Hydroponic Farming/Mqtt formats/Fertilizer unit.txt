@@ -1,0 +1,18 @@
+************************Fertilizer Unit***********************************
+
+**********Manual mode**********
+
+MQTT msg format
+"F1_on"  - to manuallt turn on
+"F1_off"  - to manually turn off
+
+**********Automatic Mode**********
+
+if the ,
+0.0<PH value < 5.5  - turn on
+9.0>PH value > 5.5  - turn off	
+
+
+MQTT msg format
+"F154"  - to manuallt turn on
+"F156"  - to manually turn off
