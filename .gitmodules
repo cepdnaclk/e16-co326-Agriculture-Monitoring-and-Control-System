@@ -1,0 +1,3 @@
+[submodule "Greenhouse - Group 1/greenhouse-controller"]
+	path = Greenhouse - Group 1/greenhouse-controller
+	url = git@github.com:buddhiheshan/greenhouse-controller.git
