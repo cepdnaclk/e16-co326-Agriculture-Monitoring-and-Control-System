@@ -1,0 +1,582 @@
+[
+    {
+        "id": "a6002f09ae619177",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "45d5e8dc843fbe85",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "node-red-client",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "0",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "115b5fbc6efd70bb",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "6823c61b925a0646",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "Temparature-mqtt",
+        "topic": "CO326/2021/Cloud/temp_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "77b3e51cbe981343"
+            ]
+        ]
+    },
+    {
+        "id": "77b3e51cbe981343",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{temparatue: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "765a1ff47c60b773",
+                "3fbd9d5c667478b1"
+            ]
+        ]
+    },
+    {
+        "id": "765a1ff47c60b773",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3fbd9d5c667478b1",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "",
+        "name": "influx-temparature-measurement",
+        "measurement": "temparature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 900,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b0b4ca3dc3faf98b",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "Humidity-mqtt",
+        "topic": "CO326/2021/Cloud/humidity_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "b95b9145cb7605c7"
+            ]
+        ]
+    },
+    {
+        "id": "b95b9145cb7605c7",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{humidity: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "22c7b2d9cae1f7b7",
+                "1dce1259b7230d19"
+            ]
+        ]
+    },
+    {
+        "id": "22c7b2d9cae1f7b7",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1dce1259b7230d19",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "",
+        "name": "influx-humidity-measurement",
+        "measurement": "humidity",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 930,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "139249fececfc662",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "Soil_Moisture-mqtt",
+        "topic": "CO326/2021/Cloud/soil_moisture_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 520,
+        "wires": [
+            [
+                "86fa1be5f09e6bd4"
+            ]
+        ]
+    },
+    {
+        "id": "86fa1be5f09e6bd4",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{soil_moisture: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 520,
+        "wires": [
+            [
+                "c93b1d8a06930f97",
+                "fd712e9db26536ac"
+            ]
+        ]
+    },
+    {
+        "id": "c93b1d8a06930f97",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "fd712e9db26536ac",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "",
+        "name": "influx-soilMoisture-measuement",
+        "measurement": "soilMoisture",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 920,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "894e09d0e58e1f70",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "lightIntensitivity-mqtt",
+        "topic": "CO326/2021/Cloud/lightIntensitivity_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 660,
+        "wires": [
+            [
+                "d98a9cdc8e459698"
+            ]
+        ]
+    },
+    {
+        "id": "d98a9cdc8e459698",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{lightintensitivity: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 660,
+        "wires": [
+            [
+                "06c0a35f1e091d03",
+                "98ff7d7f0a2932e7"
+            ]
+        ]
+    },
+    {
+        "id": "06c0a35f1e091d03",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "98ff7d7f0a2932e7",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "115b5fbc6efd70bb",
+        "name": "influx-lightIntensitivity-measuement",
+        "measurement": "lightIntensitivity",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 910,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "ff0e8039ef3e6ce2",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "wasteWaterPH-mqtt",
+        "topic": "CO326/2021/Cloud/wasteWaterPH_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 800,
+        "wires": [
+            [
+                "8f8659dbfc98f9ce"
+            ]
+        ]
+    },
+    {
+        "id": "8f8659dbfc98f9ce",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{wastewaterPH: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 800,
+        "wires": [
+            [
+                "d0b11ae3a3a2e482",
+                "589415910ea5c9ee"
+            ]
+        ]
+    },
+    {
+        "id": "d0b11ae3a3a2e482",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "589415910ea5c9ee",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "",
+        "name": "influx-wasteWaterPH-measuement",
+        "measurement": "wasteWaterPH",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 900,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "e9fc9a157a2c20be",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "waterQuality-mqtt",
+        "topic": "CO326/2021/Cloud/waterQuality_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 940,
+        "wires": [
+            [
+                "6e75e30933a2512d"
+            ]
+        ]
+    },
+    {
+        "id": "6e75e30933a2512d",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{waterquality: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 940,
+        "wires": [
+            [
+                "e91e8dad75f7d6f8",
+                "55cd63f76d20da60"
+            ]
+        ]
+    },
+    {
+        "id": "e91e8dad75f7d6f8",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "55cd63f76d20da60",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "",
+        "name": "influx-waterQuality-measuement",
+        "measurement": "waterQuality",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 900,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "31876561c5da054c",
+        "type": "mqtt in",
+        "z": "a6002f09ae619177",
+        "name": "FertilizerLevel-mqtt",
+        "topic": "CO326/2021/Cloud/fertilizerLevel_reading",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "45d5e8dc843fbe85",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 1100,
+        "wires": [
+            [
+                "ec91f55602e34b28"
+            ]
+        ]
+    },
+    {
+        "id": "ec91f55602e34b28",
+        "type": "function",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "func": "var newMsg = { payload:{fertilizerlevel: msg.payload}};\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 1100,
+        "wires": [
+            [
+                "6edb2b996177c908",
+                "e631bbea156acb8a"
+            ]
+        ]
+    },
+    {
+        "id": "6edb2b996177c908",
+        "type": "debug",
+        "z": "a6002f09ae619177",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "e631bbea156acb8a",
+        "type": "influxdb out",
+        "z": "a6002f09ae619177",
+        "influxdb": "",
+        "name": "influx-fertilizerLevel-measuement",
+        "measurement": "fertilizerLevel",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 920,
+        "y": 1160,
+        "wires": []
+    }
+]
