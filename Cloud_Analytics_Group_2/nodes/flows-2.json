@@ -1,0 +1,619 @@
+[
+    {
+        "id": "85b2dff26a7d2308",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5acc174de6d5cdd5",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-temparature-request",
+        "url": "/temparature",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "f2b5e90f645de486",
+                "d2e3093ccf39e30f"
+            ]
+        ]
+    },
+    {
+        "id": "f2b5e90f645de486",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "temparature-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "8f4933b9afd5fad0"
+            ]
+        ]
+    },
+    {
+        "id": "735d33ddda2bd7b4",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-temparature-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 860,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8f4933b9afd5fad0",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 910,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2e3093ccf39e30f",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "temparature-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 160,
+        "wires": [
+            [
+                "735d33ddda2bd7b4"
+            ]
+        ]
+    },
+    {
+        "id": "c8253f0d4c25350a",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-humidity-request",
+        "url": "/humidity",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "0574a38ecf912d20",
+                "682578ccc2feb4d4"
+            ]
+        ]
+    },
+    {
+        "id": "0574a38ecf912d20",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "humidity-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "cddc6a83b9991610"
+            ]
+        ]
+    },
+    {
+        "id": "8c6e55a2dfd1f489",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-humidity-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cddc6a83b9991610",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 880,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "682578ccc2feb4d4",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "humidity-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 420,
+        "wires": [
+            [
+                "8c6e55a2dfd1f489"
+            ]
+        ]
+    },
+    {
+        "id": "f9a0b78f60ee9b44",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-Soil_Moisture-request",
+        "url": "/Soil_Moisture",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 680,
+        "wires": [
+            [
+                "ad030113c5a05029",
+                "99fc7a84428fb6e5"
+            ]
+        ]
+    },
+    {
+        "id": "ad030113c5a05029",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "Soil_Moisture-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 780,
+        "wires": [
+            [
+                "f48a60f27d19af10"
+            ]
+        ]
+    },
+    {
+        "id": "10091558a5835cbb",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-Soil_Moisture-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 830,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f48a60f27d19af10",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 880,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99fc7a84428fb6e5",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "Soil_Moisture-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 700,
+        "wires": [
+            [
+                "10091558a5835cbb"
+            ]
+        ]
+    },
+    {
+        "id": "f6708b69e47ab3cb",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-lightIntensitivity-request",
+        "url": "/lightIntensitivity",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 960,
+        "wires": [
+            [
+                "c6a06cc86d1b69d8",
+                "a49d98bf6cff7804"
+            ]
+        ]
+    },
+    {
+        "id": "c6a06cc86d1b69d8",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "lightIntensitivity-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1060,
+        "wires": [
+            [
+                "db4f90f6d46136b5"
+            ]
+        ]
+    },
+    {
+        "id": "b36447320f98b3ff",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-lightIntensitivity-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 860,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "db4f90f6d46136b5",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 900,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a49d98bf6cff7804",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "lightIntensitivity-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 980,
+        "wires": [
+            [
+                "b36447320f98b3ff"
+            ]
+        ]
+    },
+    {
+        "id": "ae647a62fa5a26df",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-wasteWaterPH-request",
+        "url": "/wasteWaterPH",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 320,
+        "y": 1240,
+        "wires": [
+            [
+                "91c8f63031d754fb",
+                "ad4348951e4adb94"
+            ]
+        ]
+    },
+    {
+        "id": "91c8f63031d754fb",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "wasteWaterPH-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 1340,
+        "wires": [
+            [
+                "e0ee7263e18dc155"
+            ]
+        ]
+    },
+    {
+        "id": "5b6c166cda4aa0cc",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-wasteWaterPH-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 840,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "e0ee7263e18dc155",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 880,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad4348951e4adb94",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "wasteWaterPH-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1260,
+        "wires": [
+            [
+                "5b6c166cda4aa0cc"
+            ]
+        ]
+    },
+    {
+        "id": "229c03deb97d1914",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-waterQuality-request",
+        "url": "/waterQuality",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 1560,
+        "wires": [
+            [
+                "7872e421a21c2137",
+                "fcd45c94d5b60850"
+            ]
+        ]
+    },
+    {
+        "id": "7872e421a21c2137",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "waterQuality-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 1660,
+        "wires": [
+            [
+                "8a87c2fb25c1be0d"
+            ]
+        ]
+    },
+    {
+        "id": "681855c00b0ce33e",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-waterQuality-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 830,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "8a87c2fb25c1be0d",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 880,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fcd45c94d5b60850",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "waterQuality-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1580,
+        "wires": [
+            [
+                "681855c00b0ce33e"
+            ]
+        ]
+    },
+    {
+        "id": "4fa849400837fdff",
+        "type": "http in",
+        "z": "85b2dff26a7d2308",
+        "name": "http-FertilizerLevel-request",
+        "url": "/temparature",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 1820,
+        "wires": [
+            [
+                "75738248aa1c114b",
+                "104a8d83cd01dc7b"
+            ]
+        ]
+    },
+    {
+        "id": "75738248aa1c114b",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "FertilizerLevel-thingboard-func",
+        "func": "var newMsg={payload:{value:msg.payload.value}}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 1920,
+        "wires": [
+            [
+                "c39045769779f111"
+            ]
+        ]
+    },
+    {
+        "id": "9a929145b294ecc5",
+        "type": "http response",
+        "z": "85b2dff26a7d2308",
+        "name": "http-FertilizerLevel-response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 830,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "c39045769779f111",
+        "type": "http request",
+        "z": "85b2dff26a7d2308",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http;//dumy/thingboard",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 880,
+        "y": 1940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "104a8d83cd01dc7b",
+        "type": "function",
+        "z": "85b2dff26a7d2308",
+        "name": "FertilizerLevel-response-edit-func",
+        "func": "msg.payload=null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1840,
+        "wires": [
+            [
+                "9a929145b294ecc5"
+            ]
+        ]
+    }
+]
