@@ -43,7 +43,7 @@ const char* PWD = "subnewnew";
 
 // MQTT Broker
 const char *mqtt_broker = "broker.hivemq.com";
-const char *topic = "CO326/proj";
+const char *topic = "CO326/2021/1";
 const int mqtt_port = 1883;
 
 WiFiClient espClient;
@@ -79,10 +79,8 @@ void handleMessage(char *topic, byte *payload, int length) {
 
  /*
  ============================             Control Units   ===============================
- R1 - Resevior to Fertilizer Motort   - LED_RM D1
- R2 - Resevior Levl Low               - LED_RP D2
- R3 - Resevior Level High             - LED_RP D2
- R4 - Resevior Drain                  - LED_RD D3
+ R1 - Resevior to Fertilizer Motort   - LED_RM D1 //hina
+ R4 - Main pump                       - LED_RD D3
  F1 - Fertilizer Unit                 - LED_F  D4
  GP - Growing Chamber Ph Value        - LED_GP D5 
  GD - Growing Chamber DO value        - LED_GD D0
@@ -105,22 +103,26 @@ void handleMessage(char *topic, byte *payload, int length) {
     int F1_Ph_value  = ((int)payload[2]-48)*10+(int)(payload[3])-48;
     Serial.println(F1_Ph_value);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/ph1", itoa(F1_Ph_value,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/ph1", itoa(F1_Ph_value,sub_topic,10));
     Serial.println(itoa(F1_Ph_value,sub_topic,10));
       if(F1_Ph_value<55 && F1_Ph_value >0 ){//turn on LED
       digitalWrite(LED_F, HIGH);
+      client.publish("CO326/2021/HF/1/control/ph1/pump1", "F1_on");
       }
       else if(F1_Ph_value > 55 && F1_Ph_value < 90 ){
       digitalWrite(LED_F, LOW);
+      client.publish("CO326/2021/HF/1/control/ph1/pump1", "F1_off");
       }
   }
   if(payload[0] == 70 &&  payload[1] == 49 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_F, LOW);
+      client.publish("CO326/2021/HF/1/control/ph1/pump1", "F1_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_F, HIGH);
+      client.publish("CO326/2021/HF/1/control/ph1/pump1", "F1_on");
     }
   }
 
@@ -137,20 +139,26 @@ void handleMessage(char *topic, byte *payload, int length) {
   if(payload[0] == 82 &&  payload[1] == 49 && payload[2]<58 && payload[2]>47){   //automatic mode
     int SendToF  = ((int)payload[2])-48;
     Serial.println(SendToF);
+    char sub_topic[16];
+    client.publish("CO326/2021/HF/1/sensor/r1", itoa(SendToF,sub_topic,10));
       if(SendToF == 1 ){   //turn on LED
       digitalWrite(LED_RM, HIGH);
+      client.publish("CO326/2021/HF/1/control/r1/motor", "r1_on");
       }
       if(SendToF == 0 ){   //turn on LED
       digitalWrite(LED_RM, LOW);
+      client.publish("CO326/2021/HF/1/control/r1/motor", "r1_off");
       }
   }
   if(payload[0] == 82 &&  payload[1] == 50 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_RM, LOW);
+      client.publish("CO326/2021/HF/1/control/r1/motor", "r1_off");
     }
   
     if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_RM, HIGH);
+      client.publish("CO326/2021/HF/1/control/r1/motor", "F1_on");
     }
   }
    /*
@@ -163,20 +171,21 @@ void handleMessage(char *topic, byte *payload, int length) {
     int water_low  = ((int)payload[2])-48;
     Serial.println(water_low);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/r1", itoa(water_low,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/r1", itoa(water_low,sub_topic,10));
       if(water_low == 1 ){   //turn on LED
       //digitalWrite(LED_RP, HIGH);
       Serial.println("Warning : Water Level is Low");
       }
   }
   if(payload[0] == 82 &&  payload[1] == 50 &&  payload[2] == 95){//manual mode
-    /*if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
-      digitalWrite(LED_RL, LOW);
-    }*/
+    if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
+      client.publish("CO326/2021/HF/1/sensor/warning", "off");
+    }
   
     if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       //digitalWrite(LED_RP, HIGH);
       Serial.println("Warning : Water Level is Low");
+      client.publish("CO326/2021/HF/1/sensor/warning", "on");
     }
   }
   
@@ -188,24 +197,27 @@ void handleMessage(char *topic, byte *payload, int length) {
     int water_high  = ((int)payload[2]-48);
     Serial.println(water_high);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/r2", itoa(water_high,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/r2", itoa(water_high,sub_topic,10));
       if(water_high == 1 ){//turn on LED
       //digitalWrite(LED_RP, LOW);
       Serial.println("Warning : Water Level is High");
+      client.publish("CO326/2021/HF/1/control/warning", "on");
+      
       }
-      /*else if(water_high == 0){
-      digitalWrite(LED_RH, LOW);
-      }*/
+      else if(water_high == 0){
+      client.publish("CO326/2021/HF/1/control/warning", "off");
+      }
   }
   if(payload[0] == 82 &&  payload[1] == 51 &&  payload[2] == 95 && payload[2]<58 && payload[2]>47){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       //digitalWrite(LED_RP, LOW);
       Serial.println("Warning : Water Level is High");
+      client.publish("CO326/2021/HF/1/control/warning", "on");
     }
   
-    /*else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
-      digitalWrite(LED_RH, HIGH);
-    }*/
+    else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
+      client.publish("CO326/2021/HF/1/control/warning", "off");
+    }
   }
 
   /*
@@ -217,18 +229,22 @@ void handleMessage(char *topic, byte *payload, int length) {
     Serial.println(drain);
       if(drain == 1 ){//turn on LED
       digitalWrite(LED_RD, HIGH);
+      //client.publish("CO326/2021/HF/1/control/drain", "R4_on");
       }
       else if(drain == 0){
       digitalWrite(LED_RD, LOW);
+      //client.publish("CO326/2021/HF/1/control/drain", "R4_off");
       }
   }
   if(payload[0] == 82 &&  payload[1] == 52 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_RD, LOW);
+      //client.publish("CO326/2021/HF/1/control/drain", "R4_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_RD, HIGH);
+      //client.publish("CO326/2021/HF/1/control/drain", "R4_on");
     }
   }
 
@@ -244,21 +260,25 @@ void handleMessage(char *topic, byte *payload, int length) {
     int GP_Ph_value  = ((int)payload[2]-48)*10+(int)(payload[3])-48;
     Serial.println(GP_Ph_value);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/ph2", itoa(GP_Ph_value,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/ph2", itoa(GP_Ph_value,sub_topic,10));
       if(GP_Ph_value<55 && GP_Ph_value >0 ){//turn on LED
         digitalWrite(LED_GP, HIGH);
+        client.publish("CO326/2021/HF/1/control/ph2/pump1", "GP_on");
       }
       else if(GP_Ph_value > 55 && GP_Ph_value < 90 ){
         digitalWrite(LED_GP, LOW);
+        client.publish("CO326/2021/HF/1/control/ph2/pump1", "GP_off");
       }
   }
   if(payload[0] == 71 &&  payload[1] == 80 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_GP, LOW);
+      client.publish("CO326/2021/HF/1/control/ph2/pump1", "GP_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_GP, HIGH);
+      client.publish("CO326/2021/HF/1/control/ph2/pump1", "GP_on");
     }
   }
 
@@ -267,24 +287,28 @@ void handleMessage(char *topic, byte *payload, int length) {
   */
 
   if(payload[0] == 71 &&  payload[1] == 68 && payload[2]<58 && payload[2]>47){//automatic mode
-    int GP_Ph_value  = ((int)payload[2]-48)*10+(int)(payload[3])-48;
-    Serial.println(GP_Ph_value);
+    int GD_value  = ((int)payload[2]-48)*10+(int)(payload[3])-48;
+    Serial.println(GD_value);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/ph2", itoa(GP_Ph_value,sub_topic,10));
-      if(GP_Ph_value<50 && GP_Ph_value >0 ){//turn on LED
+    client.publish("CO326/2021/HF/1/sensor/oxygen", itoa(GD_value,sub_topic,10));
+      if(GD_value<50 && GD_value >0 ){//turn on LED
       digitalWrite(LED_GD, HIGH);
+      //client.publish("CO326/2021/HF/1/control/ph2/pump2", "GD_on");
       }
-      else if(GP_Ph_value > 50 && GP_Ph_value < 90 ){
+      else if(GD_value > 50 && GP_Ph_value < 90 ){
       digitalWrite(LED_GD, LOW);
+      //client.publish("CO326/2021/HF/1/control/ph2/pump2", "GD_off");
       }
    }
   if(payload[0] == 71 &&  payload[1] == 68 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_GD, LOW);
+      //client.publish("CO326/2021/HF/1/control/ph2/pump2", "GD_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_GD, HIGH);
+      //client.publish("CO326/2021/HF/1/control/ph2/pump2", "GD_on");
     }
   }
   
@@ -299,21 +323,25 @@ void handleMessage(char *topic, byte *payload, int length) {
     int Light_intensity_value = ((int)payload[2]-48)*100+((int)(payload[3])-48)*10 + (int)(payload[4])-48;
     Serial.println(Light_intensity_value);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/lightintensity", itoa(Light_intensity_value,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/lightintensity", itoa(Light_intensity_value,sub_topic,10));
       if(400 > Light_intensity_value  ){//turn on LED
         digitalWrite(LED_L , HIGH);
+        client.publish("CO326/2021/HF/1/control/lightintensity", "L1_on");
       }
       else if((700 >Light_intensity_value) && (400 < Light_intensity_value)){
         digitalWrite(LED_L, LOW);
+        client.publish("CO326/2021/HF/1/control/lightintensity", "L1_off");
       }
    }
   if(payload[0] == 76 &&  payload[1] == 49 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_L, LOW);
+      client.publish("CO326/2021/HF/1/control/lightintensity", "L1_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_L, HIGH);
+      client.publish("CO326/2021/HF/1/control/lightintensity", "L1_on");
     }
   }
 
@@ -327,21 +355,25 @@ void handleMessage(char *topic, byte *payload, int length) {
     Serial.println(inside_temperature_value);
     Serial.println(outside_temperature_value);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/temp", itoa(inside_temperature_value,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/temp", itoa(inside_temperature_value,sub_topic,10));
       if((28 < inside_temperature_value) && ( 28 > outside_temperature_value)  ){//turn on LED
         digitalWrite(LED_T, HIGH);
+        client.publish("CO326/2021/HF/1/control/temp", "T1_on");
       }
       else if((19 < inside_temperature_value) && ( 28 > inside_temperature_value)){
         digitalWrite(LED_T, LOW);
+        client.publish("CO326/2021/HF/1/control/temp", "T1_off");
       }
    }
   if(payload[0] == 84 &&  payload[1] == 49 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_T, LOW);
+      client.publish("CO326/2021/HF/1/control/temp", "T1_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_T, HIGH);
+      client.publish("CO326/2021/HF/1/control/temp", "T1_on");
     }
   }
 
@@ -353,21 +385,25 @@ void handleMessage(char *topic, byte *payload, int length) {
     int humidity_value = ((int)payload[2]-48)*10+((int)(payload[3])-48);
     Serial.println(humidity_value);
     char sub_topic[16];
-    client.publish("CO326/proj/hf/1/sensor/humidity", itoa(humidity_value,sub_topic,10));
+    client.publish("CO326/2021/HF/1/sensor/humidity", itoa(humidity_value,sub_topic,10));
       if(60 > humidity_value ){//turn on LED
       digitalWrite(LED_H, HIGH);
+      client.publish("CO326/2021/HF/1/control/humidity", "H1_on");
       }
       else if((70 > humidity_value) && (60 < humidity_value )){
       digitalWrite(LED_H, LOW);
+      client.publish("CO326/2021/HF/1/control/humidity", "H1_off");
       }
    }
   if(payload[0] == 72 &&  payload[1] == 49 &&  payload[2] == 95){//manual mode
     if(payload[3] == 111 && payload[4] == 102 && payload[5] == 102){//turn off LED manually
       digitalWrite(LED_H, LOW);
+      client.publish("CO326/2021/HF/1/control/humidity", "H1_off");
     }
   
     else if(payload[3] == 111 && payload[4] == 110 ){//turn on LED manually
       digitalWrite(LED_H, HIGH);
+      client.publish("CO326/2021/HF/1/control/humidity", "H1_on");
     }
   }
 
@@ -468,9 +504,9 @@ void loop() {
       Serial.print(event.temperature);
       Serial.println(F("°C"));
       char sub_topic[16];
-      client.publish("CO326/proj/hf/1/sensor/lightintensity", itoa(event.temperature,sub_topic,10));
+      client.publish("CO326/2021/HF/1/sensor/lightintensity", itoa(event.temperature,sub_topic,10));
 
-      //client.publish("CO326/proj/hf/1/sensor/temp", event.temperature);
+      //client.publish("CO326/2021/HF/1/sensor/temp", event.temperature);
     }
   }
 
@@ -488,7 +524,7 @@ void loop() {
       if(60 > event.relative_humidity ){//turn on LED
       digitalWrite(LED_H, HIGH);
       char sub_topic[16];
-      client.publish("CO326/proj/hf/1/sensor/lightintensity", itoa(event.relative_humidity,sub_topic,10));
+      client.publish("CO326/2021/HF/1/sensor/lightintensity", itoa(event.relative_humidity,sub_topic,10));
       }
       else if( 60 < event.relative_humidity ){
       digitalWrite(LED_H, LOW);
