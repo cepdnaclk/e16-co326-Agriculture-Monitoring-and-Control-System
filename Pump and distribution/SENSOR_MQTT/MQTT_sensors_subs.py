@@ -7,16 +7,12 @@ import json
 import random
 import time
 
-broker="broker.mqttdashboard.com" #IP of your Raspberry Pi
+broker="broker.mqttdashboard.com" 
 
 def on_message(message):
     print("Message \'" + message.message + "\' received under topic \'" + message.topic + "\'");
 
-
 client= mqtt.Client()
-INTERVAL=2
-
-next_reading = time.time() 
 
 TOPIC_HUMIDITY      = "/CO326/2021/PDU/water_quality_humidity"
 TOPIC_PH            = "/CO326/2021/PDU/water_quality_ph"
@@ -30,16 +26,20 @@ client.connect(broker)
 
 # subscribing to the sensor topic
 client.subscribe(TOPIC_HUMIDITY)
+client.subscribe(TOPIC_PH)
+client.subscribe(TOPIC_TEMPERATURE)
+client.subscribe(TOPIC_OPACITY)
+
 print("Successfully subscribed to ",TOPIC_HUMIDITY)
 time.sleep(2)
-client.subscribe(TOPIC_PH)
 print("Successfully subscribed to ",TOPIC_PH)
 time.sleep(2)
-client.subscribe(TOPIC_TEMPERATURE)
 print("Successfully subscribed to ",TOPIC_TEMPERATURE)
 time.sleep(2)
-client.subscribe(TOPIC_OPACITY)
 print("Successfully subscribed to ",TOPIC_OPACITY)
+
+INTERVAL=2
+next_reading = time.time() 
 
 while True:
     client.on_message=on_message  
