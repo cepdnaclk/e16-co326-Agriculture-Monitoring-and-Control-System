@@ -3,7 +3,7 @@
         "id": "9ab0aa2ee0f67796",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -32,7 +32,7 @@
         "topic": "/CO326/2021/SS/1/flame",
         "qos": "0",
         "datatype": "utf8",
-        "broker": "b426c9da923d37f7",
+        "broker": "8a64871d599caeb9",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -42,7 +42,8 @@
         "wires": [
             [
                 "09a45d7fb37c3f78",
-                "b6455b3f2955409c"
+                "b6455b3f2955409c",
+                "e28f71b3f1da80ce"
             ]
         ]
     },
@@ -54,7 +55,7 @@
         "topic": "/CO326/2021/SS/1/smoke",
         "qos": "0",
         "datatype": "auto",
-        "broker": "b426c9da923d37f7",
+        "broker": "8a64871d599caeb9",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -64,7 +65,8 @@
         "wires": [
             [
                 "75557dbc1a58f3b9",
-                "408291eca88b9dcc"
+                "408291eca88b9dcc",
+                "0211cc71e153a5f3"
             ]
         ]
     },
@@ -73,10 +75,10 @@
         "type": "mqtt in",
         "z": "9ab0aa2ee0f67796",
         "name": "Image feedback",
-        "topic": "/CO326/2021/SS/11/image_feedback",
+        "topic": "/CO326/2021/SS/1/image_feedback",
         "qos": "0",
         "datatype": "base64",
-        "broker": "b426c9da923d37f7",
+        "broker": "8a64871d599caeb9",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -207,7 +209,7 @@
         "topic": "/CO326/2021/SS/1/alarm_on",
         "qos": "0",
         "datatype": "auto",
-        "broker": "b426c9da923d37f7",
+        "broker": "8a64871d599caeb9",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -279,10 +281,10 @@
         "type": "mqtt in",
         "z": "9ab0aa2ee0f67796",
         "name": "Sprinkler",
-        "topic": "/CO326/2021/SS/11/sprinkler_on",
+        "topic": "/CO326/2021/SS/1/sprinkler_on",
         "qos": "0",
-        "datatype": "auto",
-        "broker": "b426c9da923d37f7",
+        "datatype": "utf8",
+        "broker": "8a64871d599caeb9",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -405,6 +407,270 @@
         ]
     },
     {
+        "id": "c9bd1cea5d42a077",
+        "type": "inject",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.0",
+        "topic": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "bdc636753b5ab169"
+            ]
+        ]
+    },
+    {
+        "id": "bdc636753b5ab169",
+        "type": "function",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "func": "var fire = flow.get(\"FIRE\") || false;\nflow.set(\"FIRE\",fire);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e28f71b3f1da80ce",
+        "type": "function",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "func": "var value = msg.payload;\nvar fire = flow.get(\"FIRE\");\nif (msg.payload==\"0\"){\n    fire = true;\n}\nflow.get(\"FIRE\", fire);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0211cc71e153a5f3",
+        "type": "function",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "func": "var value = msg.payload;\nvar fire = flow.get(\"FIRE\");\nif (msg.payload==1){\n    fire = true;\n}\nflow.get(\"FIRE\", fire);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b8f8405a9ec1b80e",
+        "type": "ui_toast",
+        "z": "9ab0aa2ee0f67796",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "Fire Alert",
+        "name": "",
+        "x": 650,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9fd86517d13fcca",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Fire",
+        "topic": "/CO326/2021/SS/1/fire_detect",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "8a64871d599caeb9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 940,
+        "wires": [
+            [
+                "aa9840c805ff02ae",
+                "9b4e92a5ea76b386"
+            ]
+        ]
+    },
+    {
+        "id": "aa9840c805ff02ae",
+        "type": "debug",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Fire debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "8e830eccebfa7cc4",
+        "type": "function",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Show alert",
+        "func": "if (msg.payload == \"1\"){\n    msg.topic = \"Fire Alert\";\n    msg.payload = \"Fire at Green House  1\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 940,
+        "wires": [
+            [
+                "b8f8405a9ec1b80e"
+            ]
+        ]
+    },
+    {
+        "id": "9b4e92a5ea76b386",
+        "type": "change",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 940,
+        "wires": [
+            [
+                "8e830eccebfa7cc4"
+            ]
+        ]
+    },
+    {
+        "id": "27244bc589f73723",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Intruder",
+        "topic": "/CO326/2021/SS/1/Door",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "8a64871d599caeb9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1080,
+        "wires": [
+            [
+                "caac98593553ed69",
+                "4f5290fd7f75f176"
+            ]
+        ]
+    },
+    {
+        "id": "caac98593553ed69",
+        "type": "debug",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Door debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "4f5290fd7f75f176",
+        "type": "function",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Show alert",
+        "func": "var payload = msg.payload;\nvar values  = payload[\"val\"];\nconsole.log(payload);\nif (values[0][\"state\"]==\"False\"){\n    msg.topic = \"Intruder Alert\";\n    msg.payload = \"Intruder at Green House 1\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1080,
+        "wires": [
+            [
+                "3953129eab17d347"
+            ]
+        ]
+    },
+    {
+        "id": "3953129eab17d347",
+        "type": "ui_toast",
+        "z": "9ab0aa2ee0f67796",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "Intruder Alert",
+        "name": "",
+        "x": 650,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "49792a1783e35133",
         "type": "ui_spacer",
         "z": "9ab0aa2ee0f67796",
@@ -415,10 +681,10 @@
         "height": 1
     },
     {
-        "id": "b426c9da923d37f7",
+        "id": "8a64871d599caeb9",
         "type": "mqtt-broker",
-        "name": "HiveMQ",
-        "broker": "http://localhost",
+        "name": "",
+        "broker": "broker.hivemq.com",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -454,7 +720,7 @@
     {
         "id": "73927269c2a9d716",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "Security Unit",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
