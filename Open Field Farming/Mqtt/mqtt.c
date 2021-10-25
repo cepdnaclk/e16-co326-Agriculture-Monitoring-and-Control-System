@@ -1,37 +1,33 @@
 #include <Arduino.h>
 #include <WiFi.h>
-#include <PubSubClient.h>
 #include <ESP8266WiFi.h>    //library to connect with wifi
+#include <PubSubClient.h>   //MQTT communication library
 #include <WiFiManager.h>    //For changing connected wifi network 
+#include <DNSServer.h>
 
-#define DEBUG 1
-#ifdef DEBUG
-#define PRINT Serial.printf
-#else
-#define PRINT(...)
-#endif
 
 #define MSG_BUFFER_SIZE (25)
 
-// ledPin refers to ESP32 GPIO 23
 const int ledPin = 2;
 
 const char *ssid = "SLT-Fiber-8E73";
 const char *password = "thilniwp";
 
+// MQTT broker
 const char *mqtt_server = "broker.hivemq.com";
+
 
 // implementation topics
 const char *power_topic = "/CO326/2021/IVCU/PWR";
 const char *soil_moist_topic = "/CO326/2021/IVCU/MS";
-const char *Pump_topic = "/CO326/2021/IVCU/WP ";
-
+const char *Water_Pump_topic = "/CO326/2021/IVCU/WP ";
 const char *Valve_topic="/CO326/2021/IVCU/VS ";
+const char *Pump_Control_topic="/CO326/2021/IVCU/VS ";
 
 //  Publishing topics
 // demo topics
-const char *control_signals_COM = "/CO326/2021/IVCU/control_signals_COM";
-const char *thresholds = "/CO326/2021/IVCU/thresholds";
+const char *signals_soil_moist = "/CO326/2021/IVCU/soil_moist";
+const char *signals_Pump_topic = "/CO326/2021/IVCU/Pump_topic";
 
 
 int soil_moisture_limit = 50;
@@ -80,31 +76,21 @@ void callback(char *topic, byte *message, unsigned int length)
   char buf[messageTemp.length()];
   messageTemp.toCharArray(buf, sizeof(buf) + 1);
 
-  if (!strcmp(topic, thresholds))
+  if (!strcmp(topic, t))
   {
     sscanf(buf, "%d,",  &soil_moisture_limit);
-    PRINT("Limits updated Soil_moist=%d\t", soil_moisture_limit);
+    PRINT("Soil_moist=%d\t", soil_moisture_limit);
   }
-  
-   if (!strcmp(topic, Pump_topic))
-  {
-    sscanf(buf, "%d,",  &soil_moisture_limit);
-    PRINT("Pump status =%s\t", Pump_status);
-  }
-  
 
-  if (!strcmp(topic, sensor_readings_COM))
+  if (!strcmp(topic, Water_Pump_topic))
   {
     sscanf(buf, "%d",&soil_moisture);
     PRINT("Readings updated Soil_moist = %d\t",  soil_moisture);
 
     
     itoa(soil_moisture, msg, 10);
-    client.publish(soil_moist_topic, msg);
-   
-
-    
-    client.publish(control_signals_COM, buf, 2);
+    client.publish(signals_soil_moist);
+    client.publish(Water_Pump_topic, buf, 2);
   }
 }
 
@@ -120,8 +106,8 @@ void reconnect()
     {
       Serial.println("connected");
       // Subscribe
-      client.subscribe(sensor_readings_COM);
-      client.subscribe(thresholds);
+      client.subscribe(signals_soil_moist);
+      client.subscribe(signals_Pump_topic);
     }
     else
     {
@@ -135,17 +121,7 @@ void reconnect()
 }
 
 
-void Task1code(void *parameter)
-{
-  for (;;)
-  {
-    if (!client.connected())
-    {
-      reconnect();
-    }
-    // client.loop();
-  }
-}
+
 void setup()
 {
   // initialize digital pin ledPin as an output.
@@ -177,14 +153,7 @@ void setup()
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 
-  xTaskCreatePinnedToCore(
-      Task1code, /* Function to implement the task */
-      "Task1",   /* Name of the task */
-      10000,     /* Stack size in words */
-      NULL,      /* Task input parameter */
-      0,         /* Priority of the task */
-      &Task1,    /* Task handle. */
-      0);        /* Core */
+  
 }
 
 
