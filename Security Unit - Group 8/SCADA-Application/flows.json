@@ -1,0 +1,462 @@
+[
+    {
+        "id": "9ab0aa2ee0f67796",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "09a45d7fb37c3f78",
+        "type": "debug",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Flame debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a6a25d432fd025b6",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Flame sensor",
+        "topic": "/CO326/2021/SS/1/flame",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "b426c9da923d37f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "09a45d7fb37c3f78",
+                "b6455b3f2955409c"
+            ]
+        ]
+    },
+    {
+        "id": "72656c25abc6750a",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Smoke sensor",
+        "topic": "/CO326/2021/SS/1/smoke",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "b426c9da923d37f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "75557dbc1a58f3b9",
+                "408291eca88b9dcc"
+            ]
+        ]
+    },
+    {
+        "id": "b4571c8dc5aba0f7",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Image feedback",
+        "topic": "/CO326/2021/SS/11/image_feedback",
+        "qos": "0",
+        "datatype": "base64",
+        "broker": "b426c9da923d37f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 560,
+        "wires": [
+            [
+                "0f7ea6574d615cc8"
+            ]
+        ]
+    },
+    {
+        "id": "75557dbc1a58f3b9",
+        "type": "debug",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Smoke debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b6455b3f2955409c",
+        "type": "ui_led",
+        "z": "9ab0aa2ee0f67796",
+        "order": 3,
+        "group": "0fe49638f8229727",
+        "width": 3,
+        "height": 1,
+        "label": "Flame",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#0000ff",
+                "value": "null",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": true,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "408291eca88b9dcc",
+        "type": "ui_led",
+        "z": "9ab0aa2ee0f67796",
+        "order": 5,
+        "group": "0fe49638f8229727",
+        "width": 3,
+        "height": 1,
+        "label": "Smoke",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#0000ff",
+                "value": "null",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "87d00364.32326",
+        "type": "ui_template",
+        "z": "9ab0aa2ee0f67796",
+        "group": "",
+        "name": "Logo / Clock",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<script id=\"clockScript1\" type=\"text/javascript\">\n    var clockInterval;\n    $(function () {\n        if (clockInterval) return;\n\n        //add logo\n        var div1 = $('<div/>');\n        var logo = new Image();\n\n        //logo.src = '';\n        //logo.height = 45;\n        div1[0].style.margin = '10px auto';\n\n        //div1.append(logo);\n\n        //add clock\n        var div2 = $('<div/>');\n        var p = $('<p/>');\n\n        div2.append(p);\n        div2[0].style.margin = '5px';\n\n        function displayTime() {\n            p.text(new Date().toLocaleString());\n        }\n        \n        clockInterval = setInterval(displayTime, 1000);\n\n        //add to toolbar when it's available\n        var addToToolbarTimer;\n        \n        function addToToolbar() {\n            var toolbar = $('.md-toolbar-tools');\n            \n            if(!toolbar.length) return;\n            \n            toolbar.append(div1);\n            toolbar.append(div2);\n            clearInterval(addToToolbarTimer);\n        }\n        addToToolbarTimer = setInterval(addToToolbar, 100);\n    });\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "global",
+        "className": "",
+        "x": 150,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb4658971554ac7d",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Alarm",
+        "topic": "/CO326/2021/SS/1/alarm_on",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "b426c9da923d37f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "bed7d673688b3c7b",
+                "bb86c987de3e1276"
+            ]
+        ]
+    },
+    {
+        "id": "bed7d673688b3c7b",
+        "type": "debug",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Alarm debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bb86c987de3e1276",
+        "type": "ui_led",
+        "z": "9ab0aa2ee0f67796",
+        "order": 4,
+        "group": "0fe49638f8229727",
+        "width": 3,
+        "height": 1,
+        "label": "Alarm",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#0000ff",
+                "value": "null",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "0ac775f157eef08d",
+        "type": "mqtt in",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Sprinkler",
+        "topic": "/CO326/2021/SS/11/sprinkler_on",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "b426c9da923d37f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 480,
+        "wires": [
+            [
+                "df5ad137c197e68f",
+                "193e39207c173189"
+            ]
+        ]
+    },
+    {
+        "id": "df5ad137c197e68f",
+        "type": "debug",
+        "z": "9ab0aa2ee0f67796",
+        "name": "Sprinkler debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "193e39207c173189",
+        "type": "ui_led",
+        "z": "9ab0aa2ee0f67796",
+        "order": 6,
+        "group": "0fe49638f8229727",
+        "width": 3,
+        "height": 1,
+        "label": "Sprinkler",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#0000ff",
+                "value": "null",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "9e6ed9dc.f64ba8",
+        "type": "template",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<img width=\"100%\" src=\"data:image/jpg;base64,{{{payload}}}\">",
+        "output": "str",
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "28439a97.39e7a6"
+            ]
+        ]
+    },
+    {
+        "id": "28439a97.39e7a6",
+        "type": "ui_template",
+        "z": "9ab0aa2ee0f67796",
+        "group": "0fe49638f8229727",
+        "name": "",
+        "order": 1,
+        "width": 6,
+        "height": 5,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0f7ea6574d615cc8",
+        "type": "base64",
+        "z": "9ab0aa2ee0f67796",
+        "name": "",
+        "action": "b64",
+        "property": "payload",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "9e6ed9dc.f64ba8"
+            ]
+        ]
+    },
+    {
+        "id": "49792a1783e35133",
+        "type": "ui_spacer",
+        "z": "9ab0aa2ee0f67796",
+        "name": "spacer",
+        "group": "0fe49638f8229727",
+        "order": 2,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "b426c9da923d37f7",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "http://localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0fe49638f8229727",
+        "type": "ui_group",
+        "name": "GreenHouse 1",
+        "tab": "73927269c2a9d716",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "73927269c2a9d716",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
