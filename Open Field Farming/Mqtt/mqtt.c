@@ -17,6 +17,7 @@ const int ledPin = 2;
 const char *ssid = "SLT-Fiber-8E73";
 const char *password = "thilniwp";
 
+const char *mqtt_server = "broker.hivemq.com";
 
 // implementation topics
 const char *power_topic = "/CO326/2021/IVCU/PWR";
