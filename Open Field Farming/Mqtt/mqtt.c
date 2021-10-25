@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <PubSubClient.h>
+#include <ESP8266WiFi.h>    //library to connect with wifi
+#include <WiFiManager.h>    //For changing connected wifi network 
 
 #define DEBUG 1
 #ifdef DEBUG
@@ -83,6 +85,13 @@ void callback(char *topic, byte *message, unsigned int length)
     sscanf(buf, "%d,",  &soil_moisture_limit);
     PRINT("Limits updated Soil_moist=%d\t", soil_moisture_limit);
   }
+  
+   if (!strcmp(topic, Pump_topic))
+  {
+    sscanf(buf, "%d,",  &soil_moisture_limit);
+    PRINT("Pump status =%s\t", Pump_status);
+  }
+  
 
   if (!strcmp(topic, sensor_readings_COM))
   {
@@ -95,7 +104,7 @@ void callback(char *topic, byte *message, unsigned int length)
    
 
     
-    client.publish(sensor_readings_SCADA, buf, 2);
+    client.publish(control_signals_COM, buf, 2);
   }
 }
 
