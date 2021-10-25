@@ -1,3 +1,6 @@
 [submodule "Greenhouse - Group 1/greenhouse-controller"]
 	path = Greenhouse - Group 1/greenhouse-controller
 	url = git@github.com:buddhiheshan/greenhouse-controller.git
+[submodule "Greenhouse - Group 1/SCADA-Application"]
+	path = Greenhouse - Group 1/SCADA-Application
+	url = https://github.com/kavin-du/SCADA-Application.git
