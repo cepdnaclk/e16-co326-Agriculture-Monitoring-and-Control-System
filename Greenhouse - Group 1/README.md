@@ -38,7 +38,7 @@ This contain submodules. Run `git submodule update --init` after cloning the rep
 
 ## Block Diagram
 
-![Overview](./docs/Summary Block Diagram.png)
+![summary](./docs/Block_Diagram.png)
 
 ---
 
