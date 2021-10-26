@@ -8,7 +8,7 @@ Our task was to implement a green house control system which is a part of the ma
 
 **IMPORTANT**
 
-This contain submodules. Run `git submodule update --recursive --remote` after cloning the repo.
+This contain submodules. Run `git submodule update --init` after cloning the repo.
 
 ---
 
@@ -38,14 +38,14 @@ This contain submodules. Run `git submodule update --recursive --remote` after c
 
 ## Task Allocation
 
-| Team Member                     | Task                                                        |
-| ------------------------------- | ----------------------------------------------------------- |
-| Harshana Bandara (E/16/049)     | Soil moisture, Water and fertilizer tank                    |
-| Sathira Basnayake (E/16/054)    | Light intensity                                             |
-| Kavindu Chamith (E/16/057)      | Local Scada                                                 |
-| Shirly Madushanka (E/16/094)    | Communication with the main station                         |
-| Yasitha Herath (E/16/134)       | Soil moisture, Water and fertilizer tank                    |
-| Buddhi Perera (E/16/276)        | Control Logic                                               |
-| Madusha Shanaka (E/16/351)      | Humidity and humidifier                                     |
+| Team Member                      | Task                                                        |
+| -------------------------------- | ----------------------------------------------------------- |
+| Harshana Bandara (E/16/049)      | Soil moisture, Water and fertilizer tank                    |
+| Sathira Basnayake (E/16/054)     | Light intensity                                             |
+| Kavindu Chamith (E/16/057)       | Local Scada                                                 |
+| Shirly Madushanka (E/16/094)     | Communication with the main station                         |
+| Yasitha Herath (E/16/134)        | Soil moisture, Water and fertilizer tank                    |
+| Buddhi Perera (E/16/276)         | Control Logic                                               |
+| Madusha Shanaka (E/16/351)       | Humidity and humidifier                                     |
 | Thushara Weerasundara (E/16/388) | Temperature and fan                                         |
-| Nadun Welikanda (E/16/389)      | Coomunication with the sensor/actuator nodes and controller |
+| Nadun Welikanda (E/16/389)       | Coomunication with the sensor/actuator nodes and controller |
