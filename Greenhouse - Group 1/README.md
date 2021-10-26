@@ -21,7 +21,7 @@ This contain submodules. Run `git submodule update --recursive --remote` after c
 - Yasitha Herath (E/16/134) - Team Leader
 - Buddhi Perera (E/16/276)
 - Madusha Shanaka (E/16/351)
-- Thushara Wijesundara (E/16/388)
+- Thushara Weerasundara (E/16/388)
 - Nadun Welikanda (E/16/389)
 
 ---
@@ -47,5 +47,5 @@ This contain submodules. Run `git submodule update --recursive --remote` after c
 | Yasitha Herath (E/16/134)       | Soil moisture, Water and fertilizer tank                    |
 | Buddhi Perera (E/16/276)        | Control Logic                                               |
 | Madusha Shanaka (E/16/351)      | Humidity and humidifier                                     |
-| Thushara Wijesundara (E/16/388) | Temperature and fan                                         |
+| Thushara Weerasundara (E/16/388) | Temperature and fan                                         |
 | Nadun Welikanda (E/16/389)      | Coomunication with the sensor/actuator nodes and controller |
