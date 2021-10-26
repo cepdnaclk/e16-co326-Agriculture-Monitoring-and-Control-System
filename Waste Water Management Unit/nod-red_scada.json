@@ -1,0 +1,370 @@
+[
+    {
+        "id": "54a85fa21105e5ea",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1b63ca1c264afbf1",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/2",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": false,
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "5eec148b8c6946b9"
+            ]
+        ]
+    },
+    {
+        "id": "5eec148b8c6946b9",
+        "type": "ui_gauge",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "group": "6f02011f68c81f59",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PH",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 470,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bafcf3b5c7f99b8b",
+        "type": "ui_gauge",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "group": "6f02011f68c81f59",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Water level",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": "75",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 490,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "d9cfabb9c7d2e6be",
+        "type": "ui_gauge",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "group": "eacafe4a.523ea",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "112bb42e830937b0",
+        "type": "ui_gauge",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "group": "eacafe4a.523ea",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "EC",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "4",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c1a4853c70fe1095",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/4",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": false,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "bafcf3b5c7f99b8b"
+            ]
+        ]
+    },
+    {
+        "id": "4fdcd02786b4adb3",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/1",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": false,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "d9cfabb9c7d2e6be"
+            ]
+        ]
+    },
+    {
+        "id": "abf2dd705926b7ed",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/3",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": false,
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "112bb42e830937b0"
+            ]
+        ]
+    },
+    {
+        "id": "7af57bc46af42b7d",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/v1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "aeb91b36758dd026"
+            ]
+        ]
+    },
+    {
+        "id": "aeb91b36758dd026",
+        "type": "ui_text",
+        "z": "54a85fa21105e5ea",
+        "group": "02f69c56668962c4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "inlet valve",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 490,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "afcf1662b41b3bab",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/v2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 180,
+        "y": 460,
+        "wires": [
+            [
+                "a1757ffe62c4b98b"
+            ]
+        ]
+    },
+    {
+        "id": "1a2a22b3fc448d54",
+        "type": "mqtt in",
+        "z": "54a85fa21105e5ea",
+        "name": "",
+        "topic": "CO326/2021/WWM/v3",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "919722f0f1d870ae",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 190,
+        "y": 540,
+        "wires": [
+            [
+                "4d798e30f8b47a0a"
+            ]
+        ]
+    },
+    {
+        "id": "a1757ffe62c4b98b",
+        "type": "ui_text",
+        "z": "54a85fa21105e5ea",
+        "group": "02f69c56668962c4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "outlet valve(without filtering)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 470,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "4d798e30f8b47a0a",
+        "type": "ui_text",
+        "z": "54a85fa21105e5ea",
+        "group": "02f69c56668962c4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "outlet valve(to filter)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "da05722381be7f90",
+        "type": "ui_spacer",
+        "z": "54a85fa21105e5ea",
+        "name": "spacer",
+        "group": "6f02011f68c81f59",
+        "order": 3,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "919722f0f1d870ae",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6f02011f68c81f59",
+        "type": "ui_group",
+        "name": "SENSOR READINGS",
+        "tab": "73f3986f.a9afb8",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "eacafe4a.523ea",
+        "type": "ui_group",
+        "name": "SENSOR READINGS 2",
+        "tab": "73f3986f.a9afb8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "02f69c56668962c4",
+        "type": "ui_group",
+        "name": "valves",
+        "tab": "73f3986f.a9afb8",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "73f3986f.a9afb8",
+        "type": "ui_tab",
+        "name": "temp21",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
