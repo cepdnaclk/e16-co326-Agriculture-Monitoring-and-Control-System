@@ -4,7 +4,7 @@
 ##### Contribution
 
 * Thushara K A R :: E/16/369 :: [e16369@eng.pdn.ac.lk](e16369@eng.pdn.ac.lk)
-* Github :: [thusharakart](github.com/thusharakart)
+* Github :: [thusharakart](https://github.com/thusharakart)
 
 
 #### How to configure
