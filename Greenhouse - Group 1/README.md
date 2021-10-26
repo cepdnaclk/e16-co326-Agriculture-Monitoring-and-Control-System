@@ -35,8 +35,11 @@ This contain submodules. Run `git submodule update --init` after cloning the rep
 ![Overview](./docs/overview.png)
 
 ---
+
 ##Block Diagram
-(./docs/Summary Block Diagram.png)
+
+![Summary](./docs/Summary Block Diagram.png)
+
 ---
 
 ## Task Allocation
