@@ -1,0 +1,70 @@
+{
+  "pages": {
+    "/greenhouse1": {
+      "viewPath": "Page/Embedded/GreenHouse1"
+    },
+    "/charts": {
+      "viewPath": "Page/Charts"
+    },
+    "/GreenHouse1/greenhouse1": {
+      "viewPath": "Page/Embedded/GreenHouses/GreenHouse1",
+      "title": ""
+    },
+    "/alarms": {
+      "viewPath": "Page/Alarms"
+    },
+    "/GH/greenhouse1": {
+      "viewPath": "Page/Embedded/GreenHouses/Greenhouses/greenhouse1"
+    },
+    "/greenhouse": {
+      "viewPath": "Page/Embedded/GreenHouses/Greenhouse"
+    },
+    "/simulated-green-house": {
+      "viewPath": "Page/Embedded/GreenHouses/Greenhouses/Simulated green house"
+    },
+    "/": {
+      "viewPath": "Page/Home",
+      "title": ""
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "viewPath": "Docks/Menu",
+        "id": "menu",
+        "viewParams": {},
+        "size": 210,
+        "resizable": false,
+        "iconUrl": "",
+        "modal": false,
+        "show": "auto",
+        "anchor": "fixed",
+        "content": "push",
+        "autoBreakpoint": 768,
+        "handle": "hide"
+      }
+    ],
+    "top": [
+      {
+        "viewPath": "Framework/Breakpoint",
+        "id": "",
+        "viewParams": {
+          "path": "Header/Header",
+          "breakpointLarge": "768",
+          "breakpointMedium": "500",
+          "params": {}
+        },
+        "size": 58,
+        "resizable": false,
+        "iconUrl": "",
+        "modal": false,
+        "show": "visible",
+        "anchor": "fixed",
+        "content": "push",
+        "autoBreakpoint": 480,
+        "handle": "hide"
+      }
+    ]
+  }
+}

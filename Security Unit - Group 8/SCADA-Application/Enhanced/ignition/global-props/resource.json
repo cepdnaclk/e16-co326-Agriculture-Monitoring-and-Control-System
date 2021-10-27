@@ -1,0 +1,16 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModificationSignature": "86c53a0ad16bbd605f1ba5072947fde944b1f33e01742b0452f23df0d58854c5",
+    "lastModification": {
+      "actor": "e16394@eng.pdn.ac.lk",
+      "timestamp": "2021-10-26T17:34:54Z"
+    }
+  }
+}

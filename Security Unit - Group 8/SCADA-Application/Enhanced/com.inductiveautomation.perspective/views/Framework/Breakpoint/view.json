@@ -1,0 +1,118 @@
+{
+  "custom": {},
+  "params": {
+    "breakpointLarge": 768,
+    "breakpointMedium": 500,
+    "params": {},
+    "path": "Header/Header"
+  },
+  "propConfig": {
+    "params.breakpointLarge": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.breakpointMedium": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.params": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 58,
+      "width": 818
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.params": {
+            "binding": {
+              "config": {
+                "path": "view.params.params"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.path"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "size": "large"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Small"
+        },
+        "propConfig": {
+          "props.params.breakpoint": {
+            "binding": {
+              "config": {
+                "path": "view.params.breakpointMedium"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.params": {
+            "binding": {
+              "config": {
+                "path": "view.params.params"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.path"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Framework/Breakpoint Embedded"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.breakpoint": {
+        "binding": {
+          "config": {
+            "path": "view.params.breakpointLarge"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.breakpt"
+  }
+}

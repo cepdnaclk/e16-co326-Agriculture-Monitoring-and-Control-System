@@ -1,0 +1,89 @@
+{
+  "custom": {},
+  "params": {
+    "icon": "home",
+    "text": "Home"
+  },
+  "propConfig": {
+    "params.icon": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.text": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 56,
+      "width": 600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "expression": "\"material/\" + {view.params.icon}"
+              },
+              "type": "expr"
+            },
+            "persistent": false
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Title/Icon",
+            "marginLeft": "10px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.text"
+              },
+              "type": "property"
+            },
+            "persistent": false
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Title/Text"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Title/Title"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

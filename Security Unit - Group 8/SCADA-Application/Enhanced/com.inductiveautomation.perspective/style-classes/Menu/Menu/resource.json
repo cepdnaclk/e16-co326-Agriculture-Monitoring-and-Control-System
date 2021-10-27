@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "style.json"
+  ],
+  "attributes": {
+    "lastModificationSignature": "dc336215d1fb59d4980460feeff6178a70d2f8a7ceeaba8c6ec225ccdf4e9b47",
+    "lastModification": {
+      "actor": "e16394@eng.pdn.ac.lk",
+      "timestamp": "2021-10-26T17:34:54Z"
+    }
+  }
+}

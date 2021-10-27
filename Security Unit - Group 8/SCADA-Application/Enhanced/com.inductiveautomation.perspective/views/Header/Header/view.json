@@ -1,0 +1,643 @@
+{
+  "custom": {},
+  "params": {
+    "params": {},
+    "size": "medium"
+  },
+  "propConfig": {
+    "params.params": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.size": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 58
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer Start"
+        },
+        "position": {
+          "basis": "16px",
+          "shrink": 0
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "id": "menu",
+                "type": "toggle"
+              },
+              "scope": "C",
+              "type": "dock"
+            }
+          }
+        },
+        "meta": {
+          "name": "Menu Dock"
+        },
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.size} !\u003d \"large\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/menu",
+          "style": {
+            "classes": "Header/Icon",
+            "marginRight": "10px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "path2"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 37.344391,71.227685 v 25.297 h -3.817 v -25.297 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path4"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 56.308391,96.148685 c 0,0.754 -0.029,1.417 -0.075,1.991 -0.049,0.574 -0.118,1.077 -0.205,1.513 -0.262,1.201995 -0.775,2.235995 -1.542,3.097995 -1.438,1.664 -3.425,2.491 -5.945,2.491 -2.13,0 -3.884,-0.575 -5.26,-1.728 -1.421,-1.186 -2.24,-2.821 -2.458,-4.907995 h 3.702 c 0.144,0.787 0.378,1.393998 0.706,1.818995 0.764,0.993 1.879,1.49 3.342,1.49 2.698,0 4.047,-1.646 4.047,-4.945995 v -2.228 c -1.464,1.496 -3.152,2.244 -5.063,2.244 -2.172,0 -3.953,-0.788 -5.341,-2.359 -1.396,-1.595 -2.096,-3.589 -2.096,-5.98 0,-2.327 0.649,-4.303 1.949,-5.93 1.398,-1.729 3.244,-2.59 5.538,-2.59 2.011,0 3.681,0.746 5.014,2.245 v -1.803 h 3.688 v 15.581 z m -3.54,-7.561 c 0,-1.549 -0.417,-2.789 -1.245,-3.713 -0.839,-0.949 -1.915,-1.424 -3.227,-1.424 -1.4,0 -2.503,0.518 -3.312,1.553 -0.73,0.927 -1.098,2.129 -1.098,3.599 0,1.451 0.367,2.639 1.098,3.566 0.797,1.016 1.902,1.523 3.312,1.523 1.408,0 2.522,-0.513 3.342,-1.539 0.751,-0.927 1.13,-2.114 1.13,-3.565 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path6"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 59.950391,80.567685 h 3.705 v 1.474 c 1.29,-1.278 2.743,-1.916 4.36,-1.916 1.857,0 3.305,0.585 4.342,1.753 0.895,0.994 1.344,2.615 1.344,4.865 v 9.782 h -3.703 v -8.902 c 0,-1.569 -0.221,-2.656 -0.657,-3.257 -0.425,-0.609 -1.202,-0.916 -2.326,-0.916 -1.224,0 -2.093,0.403 -2.606,1.21 -0.502,0.797 -0.754,2.189 -0.754,4.173 v 7.692 h -3.705 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path8"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 76.790391,73.930685 c 0,-0.644 0.233,-1.202 0.702,-1.67 0.473,-0.47 1.033,-0.703 1.691,-0.703 0.663,0 1.234,0.233 1.701,0.703 0.473,0.457 0.708,1.023 0.708,1.688 0,0.667 -0.235,1.234 -0.708,1.704 -0.456,0.468 -1.02,0.705 -1.685,0.705 -0.669,0 -1.234,-0.236 -1.707,-0.705 -0.469,-0.471 -0.702,-1.045 -0.702,-1.722 z m 4.241,6.637 v 15.958 h -3.687 v -15.958 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path10"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 89.170391,84.006685 v 12.519 h -3.689 v -12.519 h -1.574 v -3.439 h 1.574 v -5.849 h 3.689 v 5.849 h 2.865 v 3.439 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path12"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 93.649391,73.930685 c 0,-0.644 0.233,-1.202 0.705,-1.67 0.468,-0.47 1.031,-0.703 1.688,-0.703 0.667,0 1.233,0.233 1.704,0.703 0.468,0.457 0.705,1.023 0.705,1.688 0,0.667 -0.236,1.234 -0.705,1.704 -0.459,0.468 -1.021,0.705 -1.688,0.705 -0.666,0 -1.235,-0.236 -1.704,-0.705 -0.472,-0.471 -0.705,-1.045 -0.705,-1.722 z m 4.243,6.637 v 15.958 h -3.687 v -15.958 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path14"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 100.80139,88.432685 c 0,-2.305 0.826,-4.266 2.476,-5.881 1.651,-1.619 3.66,-2.426 6.03,-2.426 2.381,0 4.4,0.813 6.062,2.442 1.636,1.627 2.459,3.628 2.459,5.998 0,2.389 -0.83,4.395 -2.476,6.011 -1.662,1.604 -3.698,2.408 -6.111,2.408 -2.393,0 -4.398,-0.816 -6.014,-2.458 -1.619,-1.616 -2.426,-3.646 -2.426,-6.094 z m 3.77,0.067 c 0,1.59 0.425,2.856 1.278,3.783 0.873,0.938 2.025,1.41 3.457,1.41 1.44,0 2.596,-0.463 3.457,-1.394 0.861,-0.927 1.294,-2.167 1.294,-3.721 0,-1.55 -0.433,-2.791 -1.294,-3.717 -0.873,-0.94 -2.028,-1.41 -3.457,-1.41 -1.411,0 -2.552,0.47 -3.425,1.41 -0.874,0.938 -1.31,2.151 -1.31,3.639 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path16"
+                    },
+                    "props": {
+                      "fill": {
+                        "opacity": "1"
+                      },
+                      "path": "m 132.36239,82.585685 c -0.544,-0.74 -1.026,-1.406 -1.483,-2.036 -0.715,-0.279 -1.523,-0.425 -2.434,-0.425 -1.619,0 -3.07,0.638 -4.36,1.916 v -1.474 h -3.703 v 15.958 h 3.703 v -7.692 c 0,-1.983 0.253,-3.375 0.755,-4.173 0.513,-0.807 1.384,-1.21 2.606,-1.21 1.125,0 1.898,0.307 2.326,0.916 0.434,0.601 0.652,1.688 0.652,3.257 v 8.902 h 3.705 v -9.782 c 0,-0.719 -0.05,-1.37 -0.143,-1.963 -0.587,-0.792 -1.142,-1.54 -1.624,-2.194 z",
+                      "style": {
+                        "classes": "Header/Icon"
+                      }
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path18"
+                    },
+                    "props": {
+                      "fill": {
+                        "paint": "#f7901e"
+                      },
+                      "path": "m 170.41439,49.972685 c -0.428,-0.949 -1.103,-1.685 -2.024,-2.208 -0.927,-0.521 -1.903,-0.723 -2.933,-0.598 -1.034,0.12 -1.923,0.836 -2.664,2.151 -0.14,0.241 -0.494,0.984 -1.069,2.232 -0.578,1.245 -1.313,2.821 -2.2,4.728 -0.885,1.903 -1.892,4.048 -3.013,6.43 -1.126,2.381 -2.287,4.887 -3.484,7.513 -1.202,2.627 -2.412,5.277 -3.638,7.956 -1.201,2.625 -2.346,5.116 -3.426,7.47 0.518,0.222 1.007,0.508 1.473,0.854 2.222,-3.257 4.599,-6.724 7.125,-10.401 2.557,-3.722 4.931,-7.207 7.126,-10.46 2.196,-3.25 4.064,-6.014 5.606,-8.284 1.544,-2.271 2.425,-3.602 2.644,-3.991 0.745,-1.316 0.905,-2.443 0.477,-3.392 z"
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "meta": {
+                      "name": "path20"
+                    },
+                    "props": {
+                      "fill": {
+                        "paint": "#f7901e"
+                      },
+                      "path": "m 139.79939,85.710685 c -0.701,-2.8 -1.275,-5.053 -1.715,-6.762 -0.449,-1.726 -0.823,-3.093 -1.114,-4.1 -0.29,-1.003 -0.521,-1.742 -0.69,-2.21 -0.171,-0.47 -0.335,-0.871 -0.493,-1.2 -0.377,-0.79 -0.934,-1.306 -1.666,-1.547 -0.734,-0.241 -1.518,-0.161 -2.351,0.237 -0.834,0.398 -1.389,0.96 -1.66,1.681 -0.276,0.724 -0.223,1.48 0.15,2.27 0.159,0.329 0.367,0.708 0.626,1.136 0.258,0.427 0.686,1.072 1.287,1.931 0.598,0.858 1.429,2.002 2.488,3.435 1.058,1.432 2.469,3.31 4.23,5.643 0.296,-0.193 0.599,-0.369 0.908,-0.514 z"
+                    },
+                    "type": "ia.shapes.path"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "path64"
+                        },
+                        "props": {
+                          "fill": {
+                            "paint": "#f7901e"
+                          },
+                          "path": "m 336.294,345.251 c 0,-0.837 0.668,-1.505 1.513,-1.505 0.846,0 1.512,0.668 1.512,1.505 0,0.838 -0.666,1.504 -1.512,1.504 -0.845,0 -1.513,-0.666 -1.513,-1.504 z m 2.794,0 c 0,-0.709 -0.591,-1.274 -1.281,-1.274 -0.692,0 -1.28,0.565 -1.28,1.274 0,0.709 0.588,1.273 1.28,1.273 0.69,0 1.281,-0.564 1.281,-1.273 z m -0.564,0.814 h -0.279 l -0.494,-0.76 h -0.274 v 0.76 h -0.234 v -1.647 h 0.72 c 0.297,0 0.585,0.081 0.585,0.435 0,0.324 -0.226,0.444 -0.52,0.453 z m -0.773,-0.992 c 0.206,0 0.565,0.04 0.565,-0.223 0,-0.17 -0.226,-0.2 -0.402,-0.2 h -0.438 v 0.423 z"
+                        },
+                        "type": "ia.shapes.path"
+                      }
+                    ],
+                    "meta": {
+                      "name": "g66"
+                    },
+                    "props": {
+                      "transform": "translate(-185.14061,-250.00331)"
+                    },
+                    "type": "ia.shapes.group"
+                  },
+                  {
+                    "meta": {
+                      "name": "circle68"
+                    },
+                    "props": {
+                      "cx": "142.94638",
+                      "cy": "92.620682",
+                      "fill": {
+                        "paint": "#f7901e"
+                      },
+                      "r": "4.652"
+                    },
+                    "type": "ia.shapes.circle"
+                  }
+                ],
+                "meta": {
+                  "name": "g196"
+                },
+                "props": {
+                  "transform": "translate(0,1.2700031)"
+                },
+                "type": "ia.shapes.group"
+              }
+            ],
+            "meta": {
+              "name": "g111"
+            },
+            "props": {
+              "transform": "translate(-33.527391,-48.400683)"
+            },
+            "type": "ia.shapes.group"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "Ignition Logo"
+        },
+        "position": {
+          "basis": "100px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer"
+          },
+          "viewBox": "0 0 137.121 58.111001"
+        },
+        "type": "ia.container.drawing"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Filler"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "124px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.props.theme"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": [
+            {
+              "label": "light",
+              "value": "light"
+            },
+            {
+              "label": "light-cool",
+              "value": "light-cool"
+            },
+            {
+              "label": "light-warm",
+              "value": "light-warm"
+            },
+            {
+              "label": "dark",
+              "value": "dark"
+            },
+            {
+              "label": "dark-cool",
+              "value": "dark-cool"
+            },
+            {
+              "label": "dark-warm",
+              "value": "dark-warm"
+            }
+          ],
+          "search": {
+            "enabled": false
+          },
+          "style": {
+            "classes": "Header/DropDown",
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer 1"
+        },
+        "position": {
+          "basis": "10px"
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.session.props.auth.authenticated:\n\t\tsystem.perspective.logout()\n\telse:\n\t\tsystem.perspective.login()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "User"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "material/person",
+          "style": {
+            "classes": "Header/Icon"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.session.props.auth.authenticated:\n\t\tsystem.perspective.logout()\n\telse:\n\t\tsystem.perspective.login()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "hasDelegate": true,
+          "name": "Sign In"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.size} !\u003d \"small\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003d null || len({value}) \u003d 0, \"Sign In\", {value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Header/Icon",
+            "cursor": "pointer",
+            "marginLeft": "4px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer 2"
+        },
+        "position": {
+          "basis": "10px",
+          "shrink": 0
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/alarms"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "Alarm Icon"
+        },
+        "position": {
+          "basis": "26px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "../Alarms.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"Header/Icon\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/alarm"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/alarms"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "hasDelegate": true,
+          "name": "Alarms"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.numAlarms": {
+            "binding": {
+              "config": {
+                "expression": "now(2000)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn len(system.alarm.queryStatus(state\u003d[\"ActiveUnacked\"]))",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.size} !\u003d \"small\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "../Alarms.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "this.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "numberFormat({value}, \"#,##0\") + \" alarm\" + if({value} \u003e 1 || {value} \u003d 0, \"s\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer",
+            "marginLeft": "6px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer End"
+        },
+        "position": {
+          "basis": "16px",
+          "shrink": 0
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "session.props.theme"
+          },
+          "transforms": [
+            {
+              "code": "\tif \"dark\" in value:\n\t\treturn \"var(--neutral-10)\"\n\telse:\n\t\treturn \"\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "classes": "Header/Header"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

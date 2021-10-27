@@ -1,0 +1,248 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {
+    "params.feature": {
+      "paramDirection": "input"
+    },
+    "params.key": {
+      "paramDirection": "input"
+    },
+    "params.tier1": {
+      "paramDirection": "input"
+    },
+    "params.tier2": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "icon": "home",
+            "text": "Home"
+          },
+          "path": "Page/Embedded/Title"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer_1"
+        },
+        "position": {
+          "basis": "12px",
+          "shrink": 0
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Welcome"
+        },
+        "position": {
+          "basis": "20px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Page/Bold Page/Margins Page/Text"
+          },
+          "text": "Security System"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer_2"
+        },
+        "position": {
+          "basis": "10px",
+          "shrink": 0
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer_3"
+        },
+        "position": {
+          "basis": "10px",
+          "shrink": 0
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "mapimage"
+            },
+            "position": {
+              "height": 546,
+              "width": 798,
+              "y": 0.4
+            },
+            "props": {
+              "fit": {
+                "mode": "fill",
+                "scroll": true
+              },
+              "source": "/system/images/mapimage.png"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "target": "/GH/greenhouse1"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(self.custom.target)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "GH1"
+            },
+            "position": {
+              "height": 54,
+              "width": 59,
+              "x": 486.5,
+              "y": 350
+            },
+            "props": {
+              "source": "/system/images/greenhouse.svg"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "target": "/simulated-green-house"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(self.custom.target)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "GH2"
+            },
+            "position": {
+              "height": 54,
+              "width": 59,
+              "x": 516.5,
+              "y": 273.40000915527344
+            },
+            "props": {
+              "source": "/system/images/greenhouse.svg"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "meta": {
+              "name": "GH3"
+            },
+            "position": {
+              "height": 54,
+              "width": 59,
+              "x": 560.5,
+              "y": 209
+            },
+            "props": {
+              "source": "/system/images/greenhouse.svg"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "meta": {
+              "name": "Label_GH1"
+            },
+            "position": {
+              "height": 32,
+              "width": 50,
+              "x": 501,
+              "y": 394
+            },
+            "props": {
+              "text": "GH1"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Lable_GH2"
+            },
+            "position": {
+              "height": 32,
+              "width": 50,
+              "x": 532,
+              "y": 318
+            },
+            "props": {
+              "text": "GH2"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_GH3"
+            },
+            "position": {
+              "height": 32,
+              "width": 50,
+              "x": 575,
+              "y": 254
+            },
+            "props": {
+              "text": "GH3"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "flex-end",
+      "style": {
+        "classes": "Page/Page"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

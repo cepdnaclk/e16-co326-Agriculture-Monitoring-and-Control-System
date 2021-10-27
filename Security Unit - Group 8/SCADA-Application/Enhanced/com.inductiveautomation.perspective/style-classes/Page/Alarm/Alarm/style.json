@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {
+      "borderBottomStyle": "none",
+      "borderLeftColor": "var(--neutral-40)",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": "1px",
+      "borderRightColor": "var(--neutral-40)",
+      "borderRightStyle": "solid",
+      "borderRightWidth": "1px",
+      "borderTopStyle": "none"
+    }
+  }
+}

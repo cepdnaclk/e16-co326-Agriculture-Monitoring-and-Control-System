@@ -1,0 +1,107 @@
+{
+  "custom": {},
+  "params": {
+    "breakpoint": 500,
+    "params": {},
+    "path": "Header/Header"
+  },
+  "propConfig": {
+    "params.breakpoint": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.params": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 58,
+      "width": 512
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.params": {
+            "binding": {
+              "config": {
+                "path": "view.params.params"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.path"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "size": "medium"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Small"
+        },
+        "propConfig": {
+          "props.params.params": {
+            "binding": {
+              "config": {
+                "path": "view.params.params"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.path"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "size": "small"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.breakpoint": {
+        "binding": {
+          "config": {
+            "path": "view.params.breakpoint"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.breakpt"
+  }
+}

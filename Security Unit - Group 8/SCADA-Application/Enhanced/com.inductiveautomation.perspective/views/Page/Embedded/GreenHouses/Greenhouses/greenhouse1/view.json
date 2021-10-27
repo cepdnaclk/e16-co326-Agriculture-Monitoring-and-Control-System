@@ -1,0 +1,1205 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 870,
+      "width": 1024
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/eco",
+              "style": {
+                "classes": "Title/Icon Title/Title"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "800px"
+            },
+            "props": {
+              "style": {
+                "classes": "Title/Text Title/Title"
+              },
+              "text": "Green House 1"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "57px"
+        },
+        "props": {
+          "style": {
+            "classes": "Title/Title"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "floor"
+            },
+            "position": {
+              "height": 504,
+              "width": 783.19,
+              "x": -36.18,
+              "y": 2.67
+            },
+            "props": {
+              "fit": {
+                "mode": "fill",
+                "scroll": true
+              },
+              "source": "/system/images/floor.svg"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "door"
+                },
+                "position": {
+                  "height": 100,
+                  "width": 100,
+                  "x": -11.850000000000001,
+                  "y": 123.138
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/door_open.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 0,
+                              "output": "#00D900"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/door.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "cctv"
+                },
+                "position": {
+                  "height": 57.999999999999986,
+                  "width": 67.99999999999997,
+                  "x": 258.15,
+                  "y": 129.997
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/camera_live.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#00AC00"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/cctv.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "sprinkler"
+                },
+                "position": {
+                  "height": 45,
+                  "width": 47,
+                  "x": 87.85,
+                  "y": 223.63
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/sprinkler1.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#00D900"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/sprinkler.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "sprinkler_0"
+                },
+                "position": {
+                  "height": 45,
+                  "width": 47,
+                  "x": 88,
+                  "y": 63.46750915527343
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/sprinkler2.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#00D900"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/sprinkler.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "sprinkler_1"
+                },
+                "position": {
+                  "height": 45,
+                  "width": 47,
+                  "x": 416.6499938964844,
+                  "y": 223.38
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/sprinkler4.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#00D900"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": null,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/sprinkler.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "sprinkler_2"
+                },
+                "position": {
+                  "height": 45,
+                  "width": 47,
+                  "x": 416.55,
+                  "y": 64.85500305175782
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/sprinkler3.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#00D900"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/sprinkler.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "height": 32,
+                  "width": 75,
+                  "x": 73.8499969482422,
+                  "y": 277.26
+                },
+                "props": {
+                  "text": "sprinkler1"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "height": 32,
+                  "width": 75,
+                  "x": 73.24999694824218,
+                  "y": 97.86000610351562
+                },
+                "props": {
+                  "text": "sprinkler2"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_1"
+                },
+                "position": {
+                  "height": 32,
+                  "width": 75,
+                  "x": 402.05,
+                  "y": 97.86000610351562
+                },
+                "props": {
+                  "text": "sprinkler3"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_2"
+                },
+                "position": {
+                  "height": 32,
+                  "width": 75,
+                  "x": 403.05,
+                  "y": 268.2225183105469
+                },
+                "props": {
+                  "text": "sprinkler4"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "speaker"
+                },
+                "position": {
+                  "height": 48,
+                  "rotate": {
+                    "angle": "180deg"
+                  },
+                  "width": 47,
+                  "x": 0.550002288818348,
+                  "y": 29.860000000000014
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/speaker.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#42C742"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/speaker.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "flame"
+                },
+                "position": {
+                  "height": 53,
+                  "width": 41.99999999999997,
+                  "x": 159.15,
+                  "y": 69.13499999999999
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/flame2.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#42C742"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/flame1.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "flame_0"
+                },
+                "position": {
+                  "height": 53,
+                  "width": 41.99999999999997,
+                  "x": 477.04999389648435,
+                  "y": 69.00999999999999
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/flame3.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#42C742"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/flame1.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "flame_1"
+                },
+                "position": {
+                  "height": 53,
+                  "width": 41.99999999999997,
+                  "x": 159.05,
+                  "y": 214.37251831054687
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/flame1.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#42C742"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/flame1.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "flame_2"
+                },
+                "position": {
+                  "height": 53,
+                  "width": 41.99999999999997,
+                  "x": 476.9499938964844,
+                  "y": 215.73551831054687
+                },
+                "propConfig": {
+                  "props.tint.color": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/flame4.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#000000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": 0,
+                              "output": "#42C742"
+                            },
+                            {
+                              "input": 1,
+                              "output": "#D90000"
+                            },
+                            {
+                              "input": 2,
+                              "output": "#0000D9"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  },
+                  "source": "/system/images/flame1.svg",
+                  "tint": {
+                    "enabled": true
+                  }
+                },
+                "type": "ia.display.image"
+              }
+            ],
+            "meta": {
+              "name": "CoordinateContainer"
+            },
+            "position": {
+              "height": 334,
+              "width": 536.48,
+              "x": 30.86,
+              "y": 80.74
+            },
+            "type": "ia.container.coord"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "504px"
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "BreakpointContainer"
+        },
+        "position": {
+          "basis": "11px"
+        },
+        "type": "ia.container.breakpt"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Smoke sensor 1"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SimpleGauge"
+                },
+                "position": {
+                  "basis": "175px"
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[MQTT Engine]326/smoke_sensor0"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tvalue \u003d system.util.jsonDecode(value)[\"value\"]\n\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "animate": true,
+                  "style": {
+                    "classes": []
+                  }
+                },
+                "type": "ia.chart.simple-gauge"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Threshold"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/smoke_sensor1_level"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "height": 397,
+              "width": 271,
+              "y": -0.39999999999997726
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Smoke sensor 2"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SimpleGauge"
+                },
+                "position": {
+                  "basis": "175px"
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[MQTT Engine]326/smoke_sensor1"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tvalue \u003d system.util.jsonDecode(value)[\"value\"]\n\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": []
+                  }
+                },
+                "type": "ia.chart.simple-gauge"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Threshold"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/smoke_sensor2_level"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "height": 397,
+              "width": 271,
+              "x": 257,
+              "y": -0.39998474121091476
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Smoke sensor 3"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SimpleGauge"
+                },
+                "position": {
+                  "basis": "175px"
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[MQTT Engine]326/smoke_sensor2"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tvalue \u003d system.util.jsonDecode(value)[\"value\"]\n\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": []
+                  }
+                },
+                "type": "ia.chart.simple-gauge"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Threshold"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/smoke_sensor3_level"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_2"
+            },
+            "position": {
+              "height": 397,
+              "width": 271,
+              "x": 499,
+              "y": -0.39998500000001513
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Smoke sensor 4"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SimpleGauge"
+                },
+                "position": {
+                  "basis": "175px"
+                },
+                "props": {
+                  "style": {
+                    "classes": []
+                  }
+                },
+                "type": "ia.chart.simple-gauge"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  },
+                  "text": "Threshold"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]CO326/2021/SS/1/smoke_sensor4_level"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_3"
+            },
+            "position": {
+              "height": 397,
+              "width": 271,
+              "x": 752.9999847412109,
+              "y": -0.39998500000001513
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer_0"
+        },
+        "position": {
+          "basis": "298px"
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

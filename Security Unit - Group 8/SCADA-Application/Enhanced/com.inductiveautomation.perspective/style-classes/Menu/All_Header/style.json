@@ -1,0 +1,12 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--neutral-80)",
+      "color": "var(--neutral-10)",
+      "fontSize": "14px",
+      "fontWeight": "bold",
+      "lineHeight": "17px",
+      "textTransform": "none"
+    }
+  }
+}
