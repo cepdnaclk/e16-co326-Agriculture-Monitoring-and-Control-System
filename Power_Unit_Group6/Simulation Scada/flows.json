@@ -1,0 +1,1606 @@
+[
+    {
+        "id": "b7a049df805bbe05",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e27552bd4ae6620d",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "ess_voltage",
+        "label": "Essential Voltage",
+        "tooltip": "",
+        "group": "7555d8eab4baf9fb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "ess_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 190,
+        "y": 440,
+        "wires": [
+            [
+                "925910e4f36d415b"
+            ]
+        ]
+    },
+    {
+        "id": "72bd74abe9a81d52",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "ess_current",
+        "label": "Essential Current",
+        "tooltip": "",
+        "group": "7555d8eab4baf9fb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "ess_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "925910e4f36d415b"
+            ]
+        ]
+    },
+    {
+        "id": "33bd5fe7f1aec0a1",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "noness_voltage",
+        "label": "Non-Essential Voltage",
+        "tooltip": "",
+        "group": "7555d8eab4baf9fb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "noness_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 200,
+        "y": 560,
+        "wires": [
+            [
+                "925910e4f36d415b"
+            ]
+        ]
+    },
+    {
+        "id": "25bda7d372bf2c3a",
+        "type": "mqtt out",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "topic": "/CO326/2021/GH1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c7fa3fe793d71bc",
+        "x": 1110,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1e20adb676f4ebe1",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "noness_current",
+        "label": "Non-Essential Current",
+        "tooltip": "",
+        "group": "7555d8eab4baf9fb",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "noness_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "925910e4f36d415b"
+            ]
+        ]
+    },
+    {
+        "id": "9c81c459d8d8be7f",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Essential Voltage",
+        "tooltip": "",
+        "group": "374b484445a0df18",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "ess_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 210,
+        "y": 780,
+        "wires": [
+            [
+                "17fb788a223b1bb5"
+            ]
+        ]
+    },
+    {
+        "id": "7e7bcf5d38bc2412",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Essential Current",
+        "tooltip": "",
+        "group": "374b484445a0df18",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "ess_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 210,
+        "y": 720,
+        "wires": [
+            [
+                "17fb788a223b1bb5"
+            ]
+        ]
+    },
+    {
+        "id": "2b57943e0c730c56",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Non-Essential Voltage",
+        "tooltip": "",
+        "group": "374b484445a0df18",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "noness_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 220,
+        "y": 900,
+        "wires": [
+            [
+                "17fb788a223b1bb5"
+            ]
+        ]
+    },
+    {
+        "id": "94a5caafe53b4a76",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Non-Essential Current",
+        "tooltip": "",
+        "group": "374b484445a0df18",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "noness_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 220,
+        "y": 840,
+        "wires": [
+            [
+                "17fb788a223b1bb5"
+            ]
+        ]
+    },
+    {
+        "id": "1b3e1cfff19276df",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Essential Voltage",
+        "tooltip": "",
+        "group": "ccb9728d50c27751",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "ess_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 210,
+        "y": 1120,
+        "wires": [
+            [
+                "ab83b523e405754a"
+            ]
+        ]
+    },
+    {
+        "id": "23f1a6269e04d5b2",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Essential Current",
+        "tooltip": "",
+        "group": "ccb9728d50c27751",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "ess_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 210,
+        "y": 1060,
+        "wires": [
+            [
+                "ab83b523e405754a"
+            ]
+        ]
+    },
+    {
+        "id": "bde70b21f83686d3",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Non-Essential Voltage",
+        "tooltip": "",
+        "group": "ccb9728d50c27751",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "noness_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 220,
+        "y": 1240,
+        "wires": [
+            [
+                "ab83b523e405754a"
+            ]
+        ]
+    },
+    {
+        "id": "6e535943b02eabc5",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Non-Essential Current",
+        "tooltip": "",
+        "group": "ccb9728d50c27751",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "noness_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 220,
+        "y": 1180,
+        "wires": [
+            [
+                "ab83b523e405754a"
+            ]
+        ]
+    },
+    {
+        "id": "dd8365cee0e8897c",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Essential Voltage",
+        "tooltip": "",
+        "group": "63912b7ce1376ced",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "ess_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 210,
+        "y": 1420,
+        "wires": [
+            [
+                "9388ebe3b259bb8f"
+            ]
+        ]
+    },
+    {
+        "id": "9af3b476331c0fcf",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Essential Current",
+        "tooltip": "",
+        "group": "63912b7ce1376ced",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "ess_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 210,
+        "y": 1360,
+        "wires": [
+            [
+                "9388ebe3b259bb8f"
+            ]
+        ]
+    },
+    {
+        "id": "03736229e8270d5d",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Non-Essential Voltage",
+        "tooltip": "",
+        "group": "63912b7ce1376ced",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "noness_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 220,
+        "y": 1540,
+        "wires": [
+            [
+                "9388ebe3b259bb8f"
+            ]
+        ]
+    },
+    {
+        "id": "af0dadea210f2f0d",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "label": "Non-Essential Current",
+        "tooltip": "",
+        "group": "63912b7ce1376ced",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "noness_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 220,
+        "y": 1480,
+        "wires": [
+            [
+                "9388ebe3b259bb8f"
+            ]
+        ]
+    },
+    {
+        "id": "e19be4a45109895b",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "grid_voltage",
+        "label": "Voltage",
+        "tooltip": "",
+        "group": "4aceb52fcbdea484",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "grid_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 190,
+        "y": 1740,
+        "wires": [
+            [
+                "d1fe8d3250e844ab"
+            ]
+        ]
+    },
+    {
+        "id": "0e7779248e7d832b",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "grid_current",
+        "label": "Current",
+        "tooltip": "",
+        "group": "4aceb52fcbdea484",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "grid_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 190,
+        "y": 1680,
+        "wires": [
+            [
+                "d1fe8d3250e844ab"
+            ]
+        ]
+    },
+    {
+        "id": "dfd3bee146ce15f1",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "solar_voltage",
+        "label": "Voltage",
+        "tooltip": "",
+        "group": "5a67f266f40a28ad",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "solar_voltage",
+        "topicType": "str",
+        "min": 0,
+        "max": "250",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 190,
+        "y": 1860,
+        "wires": [
+            [
+                "d1fe8d3250e844ab"
+            ]
+        ]
+    },
+    {
+        "id": "506db419d19f77eb",
+        "type": "ui_slider",
+        "z": "b7a049df805bbe05",
+        "name": "solar_current",
+        "label": "Current",
+        "tooltip": "",
+        "group": "5a67f266f40a28ad",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "solar_current",
+        "topicType": "str",
+        "min": 0,
+        "max": "55",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 190,
+        "y": 1800,
+        "wires": [
+            [
+                "d1fe8d3250e844ab"
+            ]
+        ]
+    },
+    {
+        "id": "28c8975a70d257b3",
+        "type": "ui_switch",
+        "z": "b7a049df805bbe05",
+        "name": "is_solar",
+        "label": "Connector",
+        "tooltip": "",
+        "group": "5a67f266f40a28ad",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "is_solar",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 440,
+        "y": 1900,
+        "wires": [
+            [
+                "7dc383a2d2631dbe",
+                "d1fe8d3250e844ab"
+            ]
+        ]
+    },
+    {
+        "id": "7dc383a2d2631dbe",
+        "type": "ui_led",
+        "z": "b7a049df805bbe05",
+        "order": 4,
+        "group": "5a67f266f40a28ad",
+        "width": 4,
+        "height": 1,
+        "label": "Online",
+        "labelPlacement": "left",
+        "labelAlignment": "right",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "14f8fef48374ba9e",
+        "type": "ui_led",
+        "z": "b7a049df805bbe05",
+        "order": 4,
+        "group": "4aceb52fcbdea484",
+        "width": 4,
+        "height": 1,
+        "label": "Online",
+        "labelPlacement": "left",
+        "labelAlignment": "right",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 650,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "3c8eeee94f323d69",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "d": true,
+        "name": "",
+        "func": "ess_current = msg.payload;\n// ess_volt = msg.payload.ess_voltage;\n// noness_curr = msg.payload.noness_current;\n// noness_volt = msg.payload.noness_voltage;\n// msg.payload.append({\"ess_current\": ess_current});\n\nmsg.payload[\"ess_current\"].push(ess_current);\n\n// msg.payload = {\n//     \"ess_curr\": ess_current\n    // \"ess_volt\": ess_volt, \n    // \"noness_curr\": noness_curr, \n    // \"noness_volt\": noness_volt\n// };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 2440,
+        "wires": [
+            [
+                "01de1bb532f29641"
+            ]
+        ]
+    },
+    {
+        "id": "682dbb3f98719d9c",
+        "type": "mqtt in",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "topic": "/CO326/2021/GH11",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0c8c70af58f8251d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 200,
+        "wires": [
+            [
+                "40e6e7d6f8844b05"
+            ]
+        ]
+    },
+    {
+        "id": "40e6e7d6f8844b05",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 830,
+        "y": 200,
+        "wires": [
+            [
+                "41be0206b017c26a",
+                "528111eeaafb2048"
+            ]
+        ]
+    },
+    {
+        "id": "41be0206b017c26a",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "msg.payload = msg.payload.grid_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 200,
+        "wires": [
+            [
+                "99f6ef4cb83cedc7"
+            ]
+        ]
+    },
+    {
+        "id": "99f6ef4cb83cedc7",
+        "type": "ui_text",
+        "z": "b7a049df805bbe05",
+        "group": "7555d8eab4baf9fb",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d8a13d3061035db7",
+        "type": "ui_text",
+        "z": "b7a049df805bbe05",
+        "group": "7555d8eab4baf9fb",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "528111eeaafb2048",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "msg.payload = msg.payload.grid_current;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 240,
+        "wires": [
+            [
+                "d8a13d3061035db7"
+            ]
+        ]
+    },
+    {
+        "id": "b40dcb6bc8168773",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "d": true,
+        "name": "",
+        "func": "\ness_voltage = msg.payload;\n// noness_curr = msg.payload.noness_current;\n// noness_volt = msg.payload.noness_voltage;\n\n// msg.payload.append({\"ess_voltage\": ess_voltage});\n\nmsg.payload[\"ess_voltage\"].push(ess_voltage);\n\n// msg.payload = {\n    // \"ess_curr\": ess_current\n    // \"ess_voltage\": ess_voltage\n    // \"noness_curr\": noness_curr, \n    // \"noness_volt\": noness_volt\n// };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 2500,
+        "wires": [
+            [
+                "01de1bb532f29641"
+            ]
+        ]
+    },
+    {
+        "id": "01de1bb532f29641",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "d": true,
+        "name": "",
+        "func": "ess_current = msg.payload;\ness_voltage = msg.payload;\nnoness_current = msg.payload;\nnoness_voltage = msg.payload;\n\nmsg.payload = {\n    \"ess_current\": noness_current,\n    \"ess_voltage\": ess_voltage, \n    \"noness_current\": noness_current, \n    \"noness_voltage\": noness_voltage\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca6353aeb9e81be3",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "d": true,
+        "name": "",
+        "func": "noness_current = msg.payload;\n// ess_volt = msg.payload.ess_voltage;\n// noness_curr = msg.payload.noness_current;\n// noness_volt = msg.payload.noness_voltage;\n// msg.payload.append({\"noness_current\": noness_current});\n\nmsg.payload[\"noness_current\"].push(noness_current);\n\n// msg.payload = {\n//     \"noness_current\": noness_current\n    // \"ess_volt\": ess_volt, \n    // \"noness_curr\": noness_curr, \n    // \"noness_volt\": noness_volt\n// };\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 2560,
+        "wires": [
+            [
+                "01de1bb532f29641"
+            ]
+        ]
+    },
+    {
+        "id": "f26a52ac6f1e041c",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "d": true,
+        "name": "",
+        "func": "noness_voltage = msg.payload;\n// ess_volt = msg.payload.ess_voltage;\n// noness_curr = msg.payload.noness_current;\n// noness_volt = msg.payload.noness_voltage;\n// msg.payload.append({\"noness_voltage\": noness_voltage});\n\n\nmsg.payload[\"noness_voltage\"].push(noness_voltage);\n\n\n\n// msg.payload = {\n//     \"noness_voltage\": noness_voltage\n    // \"ess_volt\": ess_volt, \n    // \"noness_curr\": noness_curr, \n    // \"noness_volt\": noness_volt\n// };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 2620,
+        "wires": [
+            [
+                "01de1bb532f29641"
+            ]
+        ]
+    },
+    {
+        "id": "925910e4f36d415b",
+        "type": "join",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 430,
+        "y": 460,
+        "wires": [
+            [
+                "eb40aaf438fe73aa"
+            ]
+        ]
+    },
+    {
+        "id": "eb40aaf438fe73aa",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [
+                "3adf577239cf8617"
+            ]
+        ]
+    },
+    {
+        "id": "3adf577239cf8617",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "val = msg.payload\n\nmsg.payload = {    \n    'ID': 1,    \n    'essentialcurrent': val.ess_current,    \n    'normalcurrent': val.noness_current,    \n    'essentialvoltage': val.ess_voltage,    \n    'normalvoltage': val.noness_voltage\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 460,
+        "wires": [
+            [
+                "482d1ee718371b37"
+            ]
+        ]
+    },
+    {
+        "id": "482d1ee718371b37",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 890,
+        "y": 460,
+        "wires": [
+            [
+                "25bda7d372bf2c3a",
+                "fc7fac38ab537143"
+            ]
+        ]
+    },
+    {
+        "id": "17fb788a223b1bb5",
+        "type": "join",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 450,
+        "y": 780,
+        "wires": [
+            [
+                "0579fb9c9d886963"
+            ]
+        ]
+    },
+    {
+        "id": "d1fe8d3250e844ab",
+        "type": "join",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "6",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 410,
+        "y": 1760,
+        "wires": [
+            [
+                "6342cb30fc92c0d2"
+            ]
+        ]
+    },
+    {
+        "id": "6342cb30fc92c0d2",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 570,
+        "y": 1760,
+        "wires": [
+            [
+                "5f7b373631f87f36",
+                "f5c80fc8d2592266"
+            ]
+        ]
+    },
+    {
+        "id": "5f7b373631f87f36",
+        "type": "mqtt out",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "topic": "/CO326/2021/POWERUNIT",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c7fa3fe793d71bc",
+        "x": 980,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "8026a01c6788c6c9",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "val = msg.payload\n\nmsg.payload = {\n    \"is_solar\": is_solar,\n    \"is_grid\": is_grid, \n    \"grid_current\": grid_current,\n    \"grid_voltage\": grid_voltage,\n    \"solar_current\": solar_current,\n    \"solar_voltage\": solar_voltage\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "457c4063970012e2",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1010,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ce4a92ce4875e5f",
+        "type": "mqtt out",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "topic": "/CO326/2021/GH2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c7fa3fe793d71bc",
+        "x": 1110,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "0579fb9c9d886963",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 590,
+        "y": 780,
+        "wires": [
+            [
+                "3ad7b03428696eee"
+            ]
+        ]
+    },
+    {
+        "id": "3ad7b03428696eee",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "val = msg.payload\n\nmsg.payload = {    \n    'ID': 2,    \n    'essentialcurrent': val.ess_current,    \n    'normalcurrent': val.noness_current,    \n    'essentialvoltage': val.ess_voltage,    \n    'normalvoltage': val.noness_voltage\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 780,
+        "wires": [
+            [
+                "1a4c84ccf09b32d8"
+            ]
+        ]
+    },
+    {
+        "id": "1a4c84ccf09b32d8",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 890,
+        "y": 780,
+        "wires": [
+            [
+                "5ce4a92ce4875e5f"
+            ]
+        ]
+    },
+    {
+        "id": "9388ebe3b259bb8f",
+        "type": "join",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 490,
+        "y": 1420,
+        "wires": [
+            [
+                "db3df3718516f345"
+            ]
+        ]
+    },
+    {
+        "id": "2e44d164fbf4550e",
+        "type": "mqtt out",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "topic": "/CO326/2021/GH4",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c7fa3fe793d71bc",
+        "x": 1130,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "db3df3718516f345",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 630,
+        "y": 1420,
+        "wires": [
+            [
+                "b5229551b7c6be4a"
+            ]
+        ]
+    },
+    {
+        "id": "b5229551b7c6be4a",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "val = msg.payload\n\nmsg.payload = {    \n    'ID': 4,    \n    'essentialcurrent': val.ess_current,    \n    'normalcurrent': val.noness_current,    \n    'essentialvoltage': val.ess_voltage,    \n    'normalvoltage': val.noness_voltage\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1420,
+        "wires": [
+            [
+                "aaa5caa97753d6b8"
+            ]
+        ]
+    },
+    {
+        "id": "aaa5caa97753d6b8",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 930,
+        "y": 1420,
+        "wires": [
+            [
+                "2e44d164fbf4550e"
+            ]
+        ]
+    },
+    {
+        "id": "ab83b523e405754a",
+        "type": "join",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 470,
+        "y": 1120,
+        "wires": [
+            [
+                "4a46a0735ba5ac26"
+            ]
+        ]
+    },
+    {
+        "id": "5caf31a9e282bc36",
+        "type": "mqtt out",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "topic": "/CO326/2021/GH3",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c7fa3fe793d71bc",
+        "x": 1130,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "4a46a0735ba5ac26",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 610,
+        "y": 1120,
+        "wires": [
+            [
+                "72a5626076e17f59"
+            ]
+        ]
+    },
+    {
+        "id": "72a5626076e17f59",
+        "type": "function",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "func": "val = msg.payload\n\nmsg.payload = {    \n    'ID': 3,    \n    'essentialcurrent': val.ess_current,    \n    'normalcurrent': val.noness_current,    \n    'essentialvoltage': val.ess_voltage,    \n    'normalvoltage': val.noness_voltage\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1120,
+        "wires": [
+            [
+                "0561cf739f842356"
+            ]
+        ]
+    },
+    {
+        "id": "0561cf739f842356",
+        "type": "json",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 950,
+        "y": 1120,
+        "wires": [
+            [
+                "5caf31a9e282bc36"
+            ]
+        ]
+    },
+    {
+        "id": "fc7fac38ab537143",
+        "type": "debug",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "75f75bc37523536b",
+        "type": "debug",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "d9c88959b4ea46ea",
+        "type": "ui_switch",
+        "z": "b7a049df805bbe05",
+        "name": "is_grid",
+        "label": "Connector",
+        "tooltip": "",
+        "group": "4aceb52fcbdea484",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "is_grid",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 450,
+        "y": 1580,
+        "wires": [
+            [
+                "d1fe8d3250e844ab",
+                "14f8fef48374ba9e",
+                "75f75bc37523536b"
+            ]
+        ]
+    },
+    {
+        "id": "f5c80fc8d2592266",
+        "type": "debug",
+        "z": "b7a049df805bbe05",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "0348e24ecff682e7",
+        "type": "ui_spacer",
+        "z": "b7a049df805bbe05",
+        "name": "spacer",
+        "group": "4aceb52fcbdea484",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0308019b6721cd66",
+        "type": "ui_spacer",
+        "z": "b7a049df805bbe05",
+        "name": "spacer",
+        "group": "4aceb52fcbdea484",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7ef195723665fe55",
+        "type": "ui_spacer",
+        "z": "b7a049df805bbe05",
+        "name": "spacer",
+        "group": "4aceb52fcbdea484",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "0267eb7d8d6ec078",
+        "type": "ui_spacer",
+        "z": "b7a049df805bbe05",
+        "name": "spacer",
+        "group": "5a67f266f40a28ad",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c334e21fda47aac8",
+        "type": "ui_spacer",
+        "z": "b7a049df805bbe05",
+        "name": "spacer",
+        "group": "5a67f266f40a28ad",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "52ef87ec69f87967",
+        "type": "ui_spacer",
+        "z": "b7a049df805bbe05",
+        "name": "spacer",
+        "group": "5a67f266f40a28ad",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "7555d8eab4baf9fb",
+        "type": "ui_group",
+        "name": "Green House 1",
+        "tab": "9afaf4e9a90ab73a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3c7fa3fe793d71bc",
+        "type": "mqtt-broker",
+        "name": "broker.hivemq.com",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "45",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "374b484445a0df18",
+        "type": "ui_group",
+        "name": "Green House 2",
+        "tab": "9afaf4e9a90ab73a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ccb9728d50c27751",
+        "type": "ui_group",
+        "name": "Green House 3",
+        "tab": "9afaf4e9a90ab73a",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63912b7ce1376ced",
+        "type": "ui_group",
+        "name": "Green House 4",
+        "tab": "9afaf4e9a90ab73a",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4aceb52fcbdea484",
+        "type": "ui_group",
+        "name": "Grid Line",
+        "tab": "125c1b16066fa4ce",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5a67f266f40a28ad",
+        "type": "ui_group",
+        "name": "Solar Power",
+        "tab": "125c1b16066fa4ce",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0c8c70af58f8251d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9afaf4e9a90ab73a",
+        "type": "ui_tab",
+        "name": " Green Houses - Simulator",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "125c1b16066fa4ce",
+        "type": "ui_tab",
+        "name": "Power Source - Simulator",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

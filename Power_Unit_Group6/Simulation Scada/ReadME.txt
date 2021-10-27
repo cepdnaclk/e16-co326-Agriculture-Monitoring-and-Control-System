@@ -1,0 +1,1 @@
+Import this json to Node RED and publish

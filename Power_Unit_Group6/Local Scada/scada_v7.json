@@ -1,0 +1,2875 @@
+[
+    {
+        "id": "1c8d1a1908801340",
+        "type": "tab",
+        "label": "CO326-Project-scada",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0655bbf1ad985fe5",
+        "type": "mqtt in",
+        "z": "1c8d1a1908801340",
+        "name": "mqtt_sub",
+        "topic": "/CO326/2021/PWRUNIT/greenhouse1",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "7ef65b98fd0bdaaf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 100,
+        "wires": [
+            [
+                "576e2508277e8034",
+                "8b971d90d1a7592f",
+                "c4e05176e9b45fb5",
+                "e59e095e8ef96662",
+                "bd5fc8616875eee8",
+                "34de07ac15ab8a4a"
+            ]
+        ]
+    },
+    {
+        "id": "576e2508277e8034",
+        "type": "debug",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8b971d90d1a7592f",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_vol_gauge",
+        "group": "0a9132342e7ba4a0",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.ess_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 540,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "dfd026bf0a38adc9",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "vol-chart",
+        "group": "31901d4fa64d4adc",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4e05176e9b45fb5",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_current_gauge",
+        "group": "0a9132342e7ba4a0",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.ess_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e59e095e8ef96662",
+        "type": "json",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "c390f347de558ecb",
+                "495bc37d0c8d453c",
+                "5cc352a1eaeb430e",
+                "5c36024a772d8dd6",
+                "4a10784dac0424ab",
+                "2d54dfbf342fc584",
+                "4cff7a79fae8e4e4"
+            ]
+        ]
+    },
+    {
+        "id": "c390f347de558ecb",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "vol_func",
+        "func": "msg.payload = msg.payload.ess_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 200,
+        "wires": [
+            [
+                "dfd026bf0a38adc9"
+            ]
+        ]
+    },
+    {
+        "id": "495bc37d0c8d453c",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "current_func",
+        "func": "\nmsg.payload = msg.payload.ess_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "363bd03805ce57db"
+            ]
+        ]
+    },
+    {
+        "id": "363bd03805ce57db",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "ess_current_chart",
+        "group": "31901d4fa64d4adc",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5cc352a1eaeb430e",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.ess_voltage * msg.payload.ess_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 280,
+        "wires": [
+            [
+                "7145af30a77fc876"
+            ]
+        ]
+    },
+    {
+        "id": "7145af30a77fc876",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "0a9132342e7ba4a0",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bd5fc8616875eee8",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_gauge",
+        "group": "0eeb1a3dd41fcbd7",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Non Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.noness_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 550,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "34de07ac15ab8a4a",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_gauge",
+        "group": "0eeb1a3dd41fcbd7",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Non Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.noness_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 560,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5c36024a772d8dd6",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.noness_voltage * msg.payload.noness_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 320,
+        "wires": [
+            [
+                "e13b4ff07de08fa2"
+            ]
+        ]
+    },
+    {
+        "id": "e13b4ff07de08fa2",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "non_ess_power",
+        "group": "0eeb1a3dd41fcbd7",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Non Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "03c4b7e506ce01d4",
+        "type": "inject",
+        "z": "1c8d1a1908801340",
+        "name": "publish",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "\t{'is_grid': 1, 'is_solar': 1, 'grid_current': 50, 'grid_voltage': 230, 'solar_current': 100, 'solar_voltage': 200}\t\t",
+        "payloadType": "jsonata",
+        "x": 260,
+        "y": 20,
+        "wires": [
+            [
+                "d42f8a575e17ea57"
+            ]
+        ]
+    },
+    {
+        "id": "d42f8a575e17ea57",
+        "type": "mqtt out",
+        "z": "1c8d1a1908801340",
+        "name": "mqtt_publish",
+        "topic": "/CO326/2021/PWRUNIT/grid1",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7ef65b98fd0bdaaf",
+        "x": 550,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "65939c09c09fc9b3",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "a74e2da325a1fafd",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Non Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1040,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "4c8b333c4706ff7c",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.noness_voltage * msg.payload.noness_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 720,
+        "wires": [
+            [
+                "65939c09c09fc9b3"
+            ]
+        ]
+    },
+    {
+        "id": "cd29c709e5e1d65a",
+        "type": "json",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 510,
+        "y": 640,
+        "wires": [
+            [
+                "bc28222b7dc214a3",
+                "2b9358417d2513ae",
+                "5dc0a6ded18ef852",
+                "4c8b333c4706ff7c",
+                "23588ec420922812",
+                "0695b2b48051868d",
+                "5f6f62ca508d86f9"
+            ]
+        ]
+    },
+    {
+        "id": "5dfdadae0d5d6f88",
+        "type": "mqtt in",
+        "z": "1c8d1a1908801340",
+        "name": "mqtt_sub",
+        "topic": "/CO326/2021/PWRUNIT/greenhouse2",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "7ef65b98fd0bdaaf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "c2efcaead820d7b8",
+                "6b4fa843df10f223",
+                "4a16f41733f84c1f",
+                "cd29c709e5e1d65a",
+                "ac32d4863cdcaf7e",
+                "923cfb5634d74711"
+            ]
+        ]
+    },
+    {
+        "id": "bc28222b7dc214a3",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "vol_func",
+        "func": "msg.payload = msg.payload.ess_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 580,
+        "wires": [
+            [
+                "a8a59330840940b6"
+            ]
+        ]
+    },
+    {
+        "id": "2b9358417d2513ae",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "current_func",
+        "func": "\nmsg.payload = msg.payload.ess_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 620,
+        "wires": [
+            [
+                "5dc95eaa10251957"
+            ]
+        ]
+    },
+    {
+        "id": "5dc0a6ded18ef852",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.ess_voltage * msg.payload.ess_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 660,
+        "wires": [
+            [
+                "ff8268ed74b856a6"
+            ]
+        ]
+    },
+    {
+        "id": "c2efcaead820d7b8",
+        "type": "debug",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6b4fa843df10f223",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_vol_gauge",
+        "group": "9d9c80c14a8bdd47",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.ess_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 540,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4a16f41733f84c1f",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_current_gauge",
+        "group": "9d9c80c14a8bdd47",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.ess_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ac32d4863cdcaf7e",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_gauge",
+        "group": "a74e2da325a1fafd",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Non Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.noness_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 550,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "923cfb5634d74711",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_gauge",
+        "group": "a74e2da325a1fafd",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Non Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.noness_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 560,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "a8a59330840940b6",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "vol-chart",
+        "group": "435c782beb8794a2",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5dc95eaa10251957",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "current chart",
+        "group": "435c782beb8794a2",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ff8268ed74b856a6",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "9d9c80c14a8bdd47",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "2b60240572d9f0eb",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "d6ac3b5c31479fb7",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Non Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1040,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "59505f0bc15bc77e",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.noness_voltage * msg.payload.noness_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1100,
+        "wires": [
+            [
+                "2b60240572d9f0eb"
+            ]
+        ]
+    },
+    {
+        "id": "74b41ab99cda7818",
+        "type": "json",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 510,
+        "y": 1020,
+        "wires": [
+            [
+                "4b6d6e1646b8d152",
+                "9e3b9283b5e4a3bf",
+                "2a69a350ea1b30d6",
+                "59505f0bc15bc77e",
+                "2f54de6d4bdc73b1",
+                "b978662747ebcb7a",
+                "9160ff8fa648c575"
+            ]
+        ]
+    },
+    {
+        "id": "b3881b8fa9025cdf",
+        "type": "mqtt in",
+        "z": "1c8d1a1908801340",
+        "name": "mqtt_sub",
+        "topic": "/CO326/2021/PWRUNIT/greenhouse3",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "7ef65b98fd0bdaaf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 860,
+        "wires": [
+            [
+                "9021d259aa8ce939",
+                "741a7675cd9b63d8",
+                "34703b2dafc56187",
+                "74b41ab99cda7818",
+                "c1726c3c688dd7f9",
+                "55c4a554c70f5b33"
+            ]
+        ]
+    },
+    {
+        "id": "4b6d6e1646b8d152",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "vol_func",
+        "func": "msg.payload = msg.payload.ess_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 960,
+        "wires": [
+            [
+                "1bbc1f6b76606b10"
+            ]
+        ]
+    },
+    {
+        "id": "9e3b9283b5e4a3bf",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "current_func",
+        "func": "\nmsg.payload = msg.payload.ess_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1000,
+        "wires": [
+            [
+                "b77019d5b32ed239"
+            ]
+        ]
+    },
+    {
+        "id": "2a69a350ea1b30d6",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.ess_voltage * msg.payload.ess_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1040,
+        "wires": [
+            [
+                "e0f86ae08c74a45e"
+            ]
+        ]
+    },
+    {
+        "id": "9021d259aa8ce939",
+        "type": "debug",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "741a7675cd9b63d8",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_vol_gauge",
+        "group": "c973d3f0b0620981",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.ess_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 540,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "34703b2dafc56187",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_current_gauge",
+        "group": "c973d3f0b0620981",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.ess_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "c1726c3c688dd7f9",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_gauge",
+        "group": "d6ac3b5c31479fb7",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Non Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.noness_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 550,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "55c4a554c70f5b33",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_gauge",
+        "group": "d6ac3b5c31479fb7",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Non Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.noness_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 560,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "1bbc1f6b76606b10",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "vol-chart",
+        "group": "64abebe15fd820a0",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b77019d5b32ed239",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "64abebe15fd820a0",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e0f86ae08c74a45e",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "c973d3f0b0620981",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "d06d69cddb9cf778",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "a224e4aa4dae9333",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Non Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1040,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "01e517c3ad465121",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.noness_voltage * msg.payload.noness_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1460,
+        "wires": [
+            [
+                "d06d69cddb9cf778"
+            ]
+        ]
+    },
+    {
+        "id": "950a8706d7529efb",
+        "type": "json",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 510,
+        "y": 1400,
+        "wires": [
+            [
+                "7748bbe6aead6e9b",
+                "f76696b7b78f3d11",
+                "ad75d2620c925873",
+                "01e517c3ad465121",
+                "5b41cec8a3e97ae8",
+                "3dfb66bd41733e75",
+                "ba11d6b36302a3c3"
+            ]
+        ]
+    },
+    {
+        "id": "be177c44bdb222bb",
+        "type": "mqtt in",
+        "z": "1c8d1a1908801340",
+        "name": "mqtt_sub",
+        "topic": "/CO326/2021/PWRUNIT/greenhouse4",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "7ef65b98fd0bdaaf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 1240,
+        "wires": [
+            [
+                "3ab0e511965629a0",
+                "727f1fa8349e99c0",
+                "3577eb418a84eaea",
+                "950a8706d7529efb",
+                "0ebb2e5ccda99f61",
+                "068e8f7782dd324a"
+            ]
+        ]
+    },
+    {
+        "id": "7748bbe6aead6e9b",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "vol_func",
+        "func": "msg.payload = msg.payload.ess_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1340,
+        "wires": [
+            [
+                "49321d56b96d798c"
+            ]
+        ]
+    },
+    {
+        "id": "f76696b7b78f3d11",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "current_func",
+        "func": "\nmsg.payload = msg.payload.ess_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1380,
+        "wires": [
+            [
+                "44fba4a9d4961136"
+            ]
+        ]
+    },
+    {
+        "id": "ad75d2620c925873",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "used_power_func",
+        "func": "msg.payload = msg.payload.ess_voltage * msg.payload.ess_current;\nmsg.payload = msg.payload / 1000;\nmsg.payload = Number((msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1420,
+        "wires": [
+            [
+                "df13f4301735fc45"
+            ]
+        ]
+    },
+    {
+        "id": "3ab0e511965629a0",
+        "type": "debug",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "727f1fa8349e99c0",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_vol_gauge",
+        "group": "45088fbe12f0f5f7",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.ess_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 540,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "3577eb418a84eaea",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "ess_current_gauge",
+        "group": "45088fbe12f0f5f7",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.ess_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "0ebb2e5ccda99f61",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_gauge",
+        "group": "a224e4aa4dae9333",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Non Essential Voltage",
+        "label": "V",
+        "format": "{{msg.payload.noness_voltage}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "210",
+        "seg2": "240",
+        "className": "",
+        "x": 550,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "068e8f7782dd324a",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_gauge",
+        "group": "a224e4aa4dae9333",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Non Essential Current",
+        "label": "Ampere",
+        "format": "{{msg.payload.noness_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 560,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "49321d56b96d798c",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "vol-chart",
+        "group": "288f648403698701",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44fba4a9d4961136",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "288f648403698701",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df13f4301735fc45",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "group": "45088fbe12f0f5f7",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Essential Power",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "e9292131ed312c5d",
+        "type": "mqtt in",
+        "z": "1c8d1a1908801340",
+        "name": "solar_mqtt",
+        "topic": "/CO326/2021/PWRUNIT/solar_grid",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "7ef65b98fd0bdaaf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 1680,
+        "wires": [
+            [
+                "f90c6e3ba7ca827f",
+                "1f2b8a8bdc57a45a",
+                "b9fb7cdda269997e",
+                "b7b477e4b8e884ce",
+                "6c8ef39a4f59bab9"
+            ]
+        ]
+    },
+    {
+        "id": "f90c6e3ba7ca827f",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "solar_vol",
+        "group": "be3c40a9278fa566",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Solar voltage",
+        "label": "V",
+        "format": "{{msg.payload.solar_voltage}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 520,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "b7b477e4b8e884ce",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "grid_vol",
+        "group": "9f2b67dbb3aff60a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Grid voltage",
+        "label": "V",
+        "format": "{{msg.payload.grid_voltage}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "220",
+        "seg2": "240",
+        "className": "",
+        "x": 520,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "6c8ef39a4f59bab9",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "grid_current",
+        "group": "9f2b67dbb3aff60a",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Grid current",
+        "label": "Ampere",
+        "format": "{{msg.payload.grid_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "45",
+        "className": "",
+        "x": 530,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "2410f5a864b993ea",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "be3c40a9278fa566",
+        "width": 0,
+        "height": 0,
+        "label": "online",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "solar_online",
+        "x": 950,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "1f2b8a8bdc57a45a",
+        "type": "json",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 510,
+        "y": 1620,
+        "wires": [
+            [
+                "1253af6445965d57",
+                "48ba5d731dcf906e",
+                "e2c5359a2ef080d9"
+            ]
+        ]
+    },
+    {
+        "id": "1253af6445965d57",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if ((msg.payload.is_grid == 1) && (msg.payload.is_solar == 1)){\n    msg.payload = true;\n}else if ((msg.payload.is_grid == 1) && (msg.payload.is_solar == 0)){\n    msg.payload = false;\n}else if ((msg.payload.is_grid == 0) && (msg.payload.is_solar == 1)){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1620,
+        "wires": [
+            [
+                "2410f5a864b993ea"
+            ]
+        ]
+    },
+    {
+        "id": "48ba5d731dcf906e",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if ((msg.payload.is_grid == 1) && (msg.payload.is_solar == 1)){\n    msg.payload = false;\n}else if ((msg.payload.is_grid == 1) && (msg.payload.is_solar == 0)){\n    msg.payload = true;\n}else if ((msg.payload.is_grid == 0) && (msg.payload.is_solar == 1)){\n    msg.payload = false;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1680,
+        "wires": [
+            [
+                "5d0e374bae73989d"
+            ]
+        ]
+    },
+    {
+        "id": "5d0e374bae73989d",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "9f2b67dbb3aff60a",
+        "width": 0,
+        "height": 0,
+        "label": "online",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "grid_online",
+        "x": 950,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "b9fb7cdda269997e",
+        "type": "ui_gauge",
+        "z": "1c8d1a1908801340",
+        "name": "solar_current",
+        "group": "be3c40a9278fa566",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Solar current",
+        "label": "Ampere",
+        "format": "{{msg.payload.solar_current}}",
+        "min": 0,
+        "max": "55",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "45",
+        "className": "",
+        "x": 530,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "4cff7a79fae8e4e4",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if (msg.payload.state == 1){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 360,
+        "wires": [
+            [
+                "99461333a813c9ba"
+            ]
+        ]
+    },
+    {
+        "id": "99461333a813c9ba",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "5292b778dc36b47d",
+        "width": "0",
+        "height": "0",
+        "label": "Non Essential online",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "state",
+        "x": 990,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5f6f62ca508d86f9",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if (msg.payload.state == 1){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 780,
+        "wires": [
+            [
+                "2277d603ad876359"
+            ]
+        ]
+    },
+    {
+        "id": "2277d603ad876359",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "bced8d8697cd823e",
+        "width": "0",
+        "height": "0",
+        "label": "Non Essential online",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "state",
+        "x": 990,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "9160ff8fa648c575",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if (msg.payload.state == 1){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1180,
+        "wires": [
+            [
+                "a0cf04cc44e62d78"
+            ]
+        ]
+    },
+    {
+        "id": "a0cf04cc44e62d78",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "3a403d5704e1aa65",
+        "width": "0",
+        "height": "0",
+        "label": "Non Essential online",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "state",
+        "x": 990,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "ba11d6b36302a3c3",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if (msg.payload.state == 1){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1500,
+        "wires": [
+            [
+                "4464caac9ce63bae"
+            ]
+        ]
+    },
+    {
+        "id": "4464caac9ce63bae",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "71ed4ef08ba92b2e",
+        "width": "0",
+        "height": "0",
+        "label": "Non Essential online",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "state",
+        "x": 990,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "4a10784dac0424ab",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noncurrent_func",
+        "func": "\nmsg.payload = msg.payload.noness_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 160,
+        "wires": [
+            [
+                "02f911f7d438430a"
+            ]
+        ]
+    },
+    {
+        "id": "2d54dfbf342fc584",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_func",
+        "func": "msg.payload = msg.payload.noness_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 120,
+        "wires": [
+            [
+                "96932dea4061f281"
+            ]
+        ]
+    },
+    {
+        "id": "96932dea4061f281",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "nonvol-chart",
+        "group": "31901d4fa64d4adc",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "NonEssential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02f911f7d438430a",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_chart",
+        "group": "31901d4fa64d4adc",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Non Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1040,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23588ec420922812",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noncurrent_func",
+        "func": "\nmsg.payload = msg.payload.noness_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 540,
+        "wires": [
+            [
+                "8c9dbdc1e44b50b4"
+            ]
+        ]
+    },
+    {
+        "id": "0695b2b48051868d",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_func",
+        "func": "msg.payload = msg.payload.noness_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 500,
+        "wires": [
+            [
+                "c57f40b1e754ff0f"
+            ]
+        ]
+    },
+    {
+        "id": "c57f40b1e754ff0f",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "nonvol-chart",
+        "group": "435c782beb8794a2",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "NonEssential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c9dbdc1e44b50b4",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_chart",
+        "group": "435c782beb8794a2",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Non Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1040,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b978662747ebcb7a",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_func",
+        "func": "msg.payload = msg.payload.noness_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 880,
+        "wires": [
+            [
+                "8e6a462243f02aa4"
+            ]
+        ]
+    },
+    {
+        "id": "2f54de6d4bdc73b1",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noncurrent_func",
+        "func": "\nmsg.payload = msg.payload.noness_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 920,
+        "wires": [
+            [
+                "b388d8b1b2b03391"
+            ]
+        ]
+    },
+    {
+        "id": "b388d8b1b2b03391",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_chart",
+        "group": "64abebe15fd820a0",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Non Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1040,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e6a462243f02aa4",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "nonvol-chart",
+        "group": "64abebe15fd820a0",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "NonEssential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3dfb66bd41733e75",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noness_vol_func",
+        "func": "msg.payload = msg.payload.noness_voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1260,
+        "wires": [
+            [
+                "b667c0724e8de59d"
+            ]
+        ]
+    },
+    {
+        "id": "5b41cec8a3e97ae8",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "noncurrent_func",
+        "func": "\nmsg.payload = msg.payload.noness_current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1300,
+        "wires": [
+            [
+                "2ed3228dd60a7bd4"
+            ]
+        ]
+    },
+    {
+        "id": "b667c0724e8de59d",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "nonvol-chart",
+        "group": "288f648403698701",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "NonEssential Voltage(v) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Voltage(v)",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "255",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ed3228dd60a7bd4",
+        "type": "ui_chart",
+        "z": "1c8d1a1908801340",
+        "name": "noness_current_chart",
+        "group": "288f648403698701",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "label": "Non Essential Current(A) vs Time(s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1040,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2c5359a2ef080d9",
+        "type": "function",
+        "z": "1c8d1a1908801340",
+        "name": "",
+        "func": "if ((msg.payload.is_grid == 0) && (msg.payload.is_solar == 0)){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1740,
+        "wires": [
+            [
+                "64a9d173df7806f7"
+            ]
+        ]
+    },
+    {
+        "id": "64a9d173df7806f7",
+        "type": "ui_led",
+        "z": "1c8d1a1908801340",
+        "order": 2,
+        "group": "7a2a8a88fde89403",
+        "width": "6",
+        "height": "3",
+        "label": "Power Failure",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#cc0505",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#fafafa",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "status",
+        "x": 930,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "7ef65b98fd0bdaaf",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "45",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0a9132342e7ba4a0",
+        "type": "ui_group",
+        "name": "essential",
+        "tab": "2ac4c6a5fe189832",
+        "order": 2,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "31901d4fa64d4adc",
+        "type": "ui_group",
+        "name": "Green House I History",
+        "tab": "05defbc2aa9c9c04",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0eeb1a3dd41fcbd7",
+        "type": "ui_group",
+        "name": "non essential ",
+        "tab": "2ac4c6a5fe189832",
+        "order": 4,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a74e2da325a1fafd",
+        "type": "ui_group",
+        "name": "non essential 2",
+        "tab": "84fef63b6a4d8a76",
+        "order": 2,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9d9c80c14a8bdd47",
+        "type": "ui_group",
+        "name": "essential 2",
+        "tab": "84fef63b6a4d8a76",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "435c782beb8794a2",
+        "type": "ui_group",
+        "name": "Green House II History",
+        "tab": "05defbc2aa9c9c04",
+        "order": 2,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d6ac3b5c31479fb7",
+        "type": "ui_group",
+        "name": "non essental 3",
+        "tab": "ff1be6729d40da2f",
+        "order": 2,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c973d3f0b0620981",
+        "type": "ui_group",
+        "name": "essential 3",
+        "tab": "ff1be6729d40da2f",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "64abebe15fd820a0",
+        "type": "ui_group",
+        "name": "Green House III History",
+        "tab": "05defbc2aa9c9c04",
+        "order": 3,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a224e4aa4dae9333",
+        "type": "ui_group",
+        "name": "non essential 4",
+        "tab": "851f0b886c9e1765",
+        "order": 2,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "45088fbe12f0f5f7",
+        "type": "ui_group",
+        "name": "essential 4",
+        "tab": "851f0b886c9e1765",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "288f648403698701",
+        "type": "ui_group",
+        "name": "Green House IV History",
+        "tab": "05defbc2aa9c9c04",
+        "order": 4,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "be3c40a9278fa566",
+        "type": "ui_group",
+        "name": "Solar Power System",
+        "tab": "c5657490a0c98e3e",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9f2b67dbb3aff60a",
+        "type": "ui_group",
+        "name": "Grid Power System",
+        "tab": "c5657490a0c98e3e",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5292b778dc36b47d",
+        "type": "ui_group",
+        "name": "state 1",
+        "tab": "2ac4c6a5fe189832",
+        "order": 3,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bced8d8697cd823e",
+        "type": "ui_group",
+        "name": "state 2",
+        "tab": "84fef63b6a4d8a76",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3a403d5704e1aa65",
+        "type": "ui_group",
+        "name": "state 3",
+        "tab": "ff1be6729d40da2f",
+        "order": 3,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "71ed4ef08ba92b2e",
+        "type": "ui_group",
+        "name": "state 4",
+        "tab": "851f0b886c9e1765",
+        "order": 3,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7a2a8a88fde89403",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "c5657490a0c98e3e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2ac4c6a5fe189832",
+        "type": "ui_tab",
+        "name": "Green House I",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "05defbc2aa9c9c04",
+        "type": "ui_tab",
+        "name": "HISTORY",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "84fef63b6a4d8a76",
+        "type": "ui_tab",
+        "name": "Green House II",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ff1be6729d40da2f",
+        "type": "ui_tab",
+        "name": "Green House III",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "851f0b886c9e1765",
+        "type": "ui_tab",
+        "name": "Green House IV",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c5657490a0c98e3e",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
